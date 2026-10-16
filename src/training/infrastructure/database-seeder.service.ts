@@ -16,6 +16,10 @@ import { WorkoutSession } from '../domain/workout-session.entity.js';
 import { LoggedSet } from '../domain/logged-set.entity.js';
 import { IRoutineTemplateRepository, ROUTINE_TEMPLATE_REPOSITORY_TOKEN } from '../domain/routine-template.repository.interface.js';
 import { RoutineTemplate } from '../domain/routine-template.entity.js';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { MuscleGroupOrmEntity } from './muscle-group.orm-entity.js';
+import { TargetZoneOrmEntity } from './target-zone.orm-entity.js';
 
 @Injectable()
 export class DatabaseSeederService implements OnApplicationBootstrap {
@@ -34,13 +38,70 @@ export class DatabaseSeederService implements OnApplicationBootstrap {
     private readonly sessionRepo: IWorkoutSessionRepository,
     @Inject(ROUTINE_TEMPLATE_REPOSITORY_TOKEN)
     private readonly templateRepo: IRoutineTemplateRepository,
+    @InjectRepository(MuscleGroupOrmEntity)
+    private readonly muscleGroupRepo: Repository<MuscleGroupOrmEntity>,
+    @InjectRepository(TargetZoneOrmEntity)
+    private readonly targetZoneRepo: Repository<TargetZoneOrmEntity>,
   ) {}
 
   async onApplicationBootstrap() {
+    await this.seedMuscleMetadata();
     await this.seedUsers();
     await this.seedExercises();
     await this.seedSamplePlanAndMetrics();
     await this.seedTemplates();
+  }
+
+  private async seedMuscleMetadata() {
+    const defaultGroups = [
+      'Piernas',
+      'Pecho',
+      'Espalda',
+      'Hombros',
+      'Brazos',
+      'Core',
+      'Glúteos',
+      'Cardio / Full Body',
+    ];
+
+    const existingGroups = await this.muscleGroupRepo.find();
+    for (const group of defaultGroups) {
+      if (!existingGroups.some((g) => g.name.toLowerCase() === group.toLowerCase())) {
+        await this.muscleGroupRepo.save(this.muscleGroupRepo.create({ name: group }));
+      }
+    }
+
+    const defaultZones = [
+      { name: 'Cuádriceps', group: 'Piernas' },
+      { name: 'Glúteo Mayor', group: 'Piernas' },
+      { name: 'Glúteo Medio', group: 'Piernas' },
+      { name: 'Isquiotibiales', group: 'Piernas' },
+      { name: 'Aductores', group: 'Piernas' },
+      { name: 'Gemelos', group: 'Piernas' },
+      { name: 'Pectoral Mayor', group: 'Pecho' },
+      { name: 'Pectoral Superior', group: 'Pecho' },
+      { name: 'Deltoides Anterior', group: 'Hombros' },
+      { name: 'Deltoides Lateral', group: 'Hombros' },
+      { name: 'Deltoides Posterior', group: 'Hombros' },
+      { name: 'Dorsal Ancho', group: 'Espalda' },
+      { name: 'Trapecio', group: 'Espalda' },
+      { name: 'Erectores Espinales', group: 'Espalda' },
+      { name: 'Bíceps Braquial', group: 'Brazos' },
+      { name: 'Tríceps Braquial', group: 'Brazos' },
+      { name: 'Braquiorradial', group: 'Brazos' },
+      { name: 'Abdomen', group: 'Core' },
+      { name: 'Oblicuos', group: 'Core' },
+      { name: 'Lumbares', group: 'Core' },
+    ];
+
+    const existingZones = await this.targetZoneRepo.find();
+    for (const item of defaultZones) {
+      if (!existingZones.some((z) => z.name.toLowerCase() === item.name.toLowerCase())) {
+        await this.targetZoneRepo.save(
+          this.targetZoneRepo.create({ name: item.name, muscleGroupName: item.group }),
+        );
+      }
+    }
   }
 
   private async seedUsers() {

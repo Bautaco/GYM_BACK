@@ -54,7 +54,7 @@ __decorate([
     __metadata("design:type", String)
 ], UserOrmEntity.prototype, "notes", void 0);
 __decorate([
-    Column({ nullable: true }),
+    Column({ type: 'text', nullable: true }),
     __metadata("design:type", String)
 ], UserOrmEntity.prototype, "avatarUrl", void 0);
 __decorate([

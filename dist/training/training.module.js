@@ -15,6 +15,8 @@ import { WorkoutSessionOrmEntity } from './infrastructure/workout-session.orm-en
 import { LoggedSetOrmEntity } from './infrastructure/logged-set.orm-entity.js';
 import { BodyWeightOrmEntity } from './infrastructure/body-weight.orm-entity.js';
 import { RoutineTemplateOrmEntity } from './infrastructure/routine-template.orm-entity.js';
+import { MuscleGroupOrmEntity } from './infrastructure/muscle-group.orm-entity.js';
+import { TargetZoneOrmEntity } from './infrastructure/target-zone.orm-entity.js';
 import { EXERCISE_REPOSITORY_TOKEN } from './domain/exercise.repository.interface.js';
 import { TypeOrmExerciseRepository } from './infrastructure/typeorm-exercise.repository.js';
 import { TRAINING_PLAN_REPOSITORY_TOKEN } from './domain/training-plan.repository.interface.js';
@@ -53,6 +55,8 @@ TrainingModule = __decorate([
                 LoggedSetOrmEntity,
                 BodyWeightOrmEntity,
                 RoutineTemplateOrmEntity,
+                MuscleGroupOrmEntity,
+                TargetZoneOrmEntity,
             ]),
         ],
         controllers: [

@@ -12,6 +12,8 @@ import { WorkoutSessionOrmEntity } from './training/infrastructure/workout-sessi
 import { LoggedSetOrmEntity } from './training/infrastructure/logged-set.orm-entity.js';
 import { BodyWeightOrmEntity } from './training/infrastructure/body-weight.orm-entity.js';
 import { RoutineTemplateOrmEntity } from './training/infrastructure/routine-template.orm-entity.js';
+import { MuscleGroupOrmEntity } from './training/infrastructure/muscle-group.orm-entity.js';
+import { TargetZoneOrmEntity } from './training/infrastructure/target-zone.orm-entity.js';
 
 const allEntities = [
   UserOrmEntity,
@@ -23,6 +25,8 @@ const allEntities = [
   LoggedSetOrmEntity,
   BodyWeightOrmEntity,
   RoutineTemplateOrmEntity,
+  MuscleGroupOrmEntity,
+  TargetZoneOrmEntity,
 ];
 
 @Module({

@@ -1,10 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe, Logger } from '@nestjs/common';
+import { json, urlencoded } from 'express';
 import { AppModule } from './app.module.js';
 import { AllExceptionsFilter } from './shared/filters/http-exception.filter.js';
 async function bootstrap() {
     const logger = new Logger('Bootstrap');
     const app = await NestFactory.create(AppModule);
+    app.use(json({ limit: '10mb' }));
+    app.use(urlencoded({ extended: true, limit: '10mb' }));
     app.enableCors({
         origin: true,
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',

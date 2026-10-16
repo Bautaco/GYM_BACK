@@ -33,7 +33,7 @@ export class UserOrmEntity {
   @Column({ nullable: true })
   notes?: string;
 
-  @Column({ nullable: true })
+  @Column({ type: 'text', nullable: true })
   avatarUrl?: string;
 
   @Column({ nullable: true })

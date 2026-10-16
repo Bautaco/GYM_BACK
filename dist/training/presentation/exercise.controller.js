@@ -24,6 +24,20 @@ let ExerciseController = class ExerciseController {
     async getAll() {
         return this.exerciseService.getAllExercises();
     }
+    async getMuscleGroups() {
+        return this.exerciseService.getMuscleGroups();
+    }
+    async getTargetZones() {
+        return this.exerciseService.getTargetZones();
+    }
+    async createMuscleGroup(name) {
+        const created = await this.exerciseService.createMuscleGroup(name);
+        return { name: created };
+    }
+    async createTargetZone(name, muscleGroupName) {
+        const created = await this.exerciseService.createTargetZone(name, muscleGroupName);
+        return { name: created };
+    }
     async getById(id) {
         return this.exerciseService.getExerciseById(id);
     }
@@ -43,6 +57,37 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], ExerciseController.prototype, "getAll", null);
+__decorate([
+    Get('muscle-groups'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ExerciseController.prototype, "getMuscleGroups", null);
+__decorate([
+    Get('target-zones'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ExerciseController.prototype, "getTargetZones", null);
+__decorate([
+    Post('muscle-groups'),
+    Roles(UserRole.ENTRENADOR),
+    HttpCode(HttpStatus.CREATED),
+    __param(0, Body('name')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ExerciseController.prototype, "createMuscleGroup", null);
+__decorate([
+    Post('target-zones'),
+    Roles(UserRole.ENTRENADOR),
+    HttpCode(HttpStatus.CREATED),
+    __param(0, Body('name')),
+    __param(1, Body('muscleGroupName')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Promise)
+], ExerciseController.prototype, "createTargetZone", null);
 __decorate([
     Get(':id'),
     __param(0, Param('id')),

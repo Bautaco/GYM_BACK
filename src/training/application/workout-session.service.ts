@@ -62,7 +62,7 @@ export class WorkoutSessionService {
     );
 
     // RF-11: Detección automática de Personal Records (PRs)
-    const previousSessions = await this.sessionRepo.findByAthleteId(dto.athleteId);
+    const previousSessions = (await this.sessionRepo.findByAthleteId(dto.athleteId)) || [];
     const detectedPRs: DetectedPR[] = [];
 
     // Agrupar ejercicios completados en la sesión actual

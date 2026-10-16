@@ -26,6 +26,35 @@ export class ExerciseController {
     return this.exerciseService.getAllExercises();
   }
 
+  @Get('muscle-groups')
+  async getMuscleGroups() {
+    return this.exerciseService.getMuscleGroups();
+  }
+
+  @Get('target-zones')
+  async getTargetZones() {
+    return this.exerciseService.getTargetZones();
+  }
+
+  @Post('muscle-groups')
+  @Roles(UserRole.ENTRENADOR)
+  @HttpCode(HttpStatus.CREATED)
+  async createMuscleGroup(@Body('name') name: string) {
+    const created = await this.exerciseService.createMuscleGroup(name);
+    return { name: created };
+  }
+
+  @Post('target-zones')
+  @Roles(UserRole.ENTRENADOR)
+  @HttpCode(HttpStatus.CREATED)
+  async createTargetZone(
+    @Body('name') name: string,
+    @Body('muscleGroupName') muscleGroupName?: string,
+  ) {
+    const created = await this.exerciseService.createTargetZone(name, muscleGroupName);
+    return { name: created };
+  }
+
   @Get(':id')
   async getById(@Param('id') id: string) {
     return this.exerciseService.getExerciseById(id);

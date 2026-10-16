@@ -30,7 +30,7 @@ let WorkoutSessionService = class WorkoutSessionService {
             return new LoggedSet('', s.exerciseId, s.exerciseName, s.setNumber, Number(s.actualReps), Number(s.actualWeightKg), s.isCompleted ?? true);
         });
         const session = new WorkoutSession('', dto.athleteId, dto.trainingPlanId, dto.routineId, dto.routineName, new Date(dto.date), dto.completed ?? true, loggedSets, dto.notes, dto.rpe, new Date());
-        const previousSessions = await this.sessionRepo.findByAthleteId(dto.athleteId);
+        const previousSessions = (await this.sessionRepo.findByAthleteId(dto.athleteId)) || [];
         const detectedPRs = [];
         const exerciseIds = Array.from(new Set(loggedSets.filter((s) => s.isCompleted).map((s) => s.exerciseId)));
         for (const exId of exerciseIds) {
