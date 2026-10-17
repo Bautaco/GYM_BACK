@@ -13,6 +13,9 @@ export declare class AuthController {
             fullName: string;
             role: UserRole;
             phone: string | undefined;
+            notes: string | undefined;
+            avatarUrl: string | undefined;
+            trainerId: string | undefined;
         };
     }>;
     register(registerDto: RegisterDto): Promise<{
@@ -22,6 +25,10 @@ export declare class AuthController {
             email: string;
             fullName: string;
             role: UserRole;
+            phone: string | undefined;
+            notes: string | undefined;
+            avatarUrl: string | undefined;
+            trainerId: string | undefined;
         };
     }>;
     getProfile(user: any): Promise<any>;

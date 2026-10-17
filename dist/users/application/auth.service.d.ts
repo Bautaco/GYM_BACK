@@ -17,6 +17,9 @@ export declare class AuthService {
             fullName: string;
             role: UserRole;
             phone: string | undefined;
+            notes: string | undefined;
+            avatarUrl: string | undefined;
+            trainerId: string | undefined;
         };
     }>;
     register(registerDto: RegisterDto): Promise<{
@@ -26,6 +29,10 @@ export declare class AuthService {
             email: string;
             fullName: string;
             role: UserRole;
+            phone: string | undefined;
+            notes: string | undefined;
+            avatarUrl: string | undefined;
+            trainerId: string | undefined;
         };
     }>;
 }
