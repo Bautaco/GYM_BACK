@@ -48,6 +48,9 @@ export class AuthService {
         fullName: user.fullName,
         role: user.role,
         phone: user.phone,
+        notes: user.notes,
+        avatarUrl: user.avatarUrl,
+        trainerId: user.trainerId,
       },
     };
   }
@@ -88,6 +91,10 @@ export class AuthService {
         email: saved.email,
         fullName: saved.fullName,
         role: saved.role,
+        phone: saved.phone,
+        notes: saved.notes,
+        avatarUrl: saved.avatarUrl,
+        trainerId: saved.trainerId,
       },
     };
   }
