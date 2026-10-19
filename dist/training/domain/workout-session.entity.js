@@ -1,3 +1,6 @@
+import { Rpe } from './value-objects/rpe.vo.js';
+import { SessionDate } from './value-objects/session-date.vo.js';
+import { Duration } from './value-objects/duration.vo.js';
 export class WorkoutSession {
     id;
     athleteId;
@@ -10,7 +13,11 @@ export class WorkoutSession {
     notes;
     rpe;
     createdAt;
-    constructor(id, athleteId, trainingPlanId, routineId, routineName, date, completed, sets, notes, rpe, createdAt) {
+    durationMinutes;
+    _sessionDate;
+    _rpeVo;
+    _durationVo;
+    constructor(id, athleteId, trainingPlanId, routineId, routineName, date, completed, sets, notes, rpe, createdAt, durationMinutes) {
         this.id = id;
         this.athleteId = athleteId;
         this.trainingPlanId = trainingPlanId;
@@ -22,6 +29,26 @@ export class WorkoutSession {
         this.notes = notes;
         this.rpe = rpe;
         this.createdAt = createdAt;
+        this.durationMinutes = durationMinutes;
+        this._sessionDate = new SessionDate(date);
+        if (rpe !== undefined && rpe !== null) {
+            this._rpeVo = new Rpe(rpe);
+        }
+        if (durationMinutes !== undefined && durationMinutes !== null) {
+            this._durationVo = new Duration(durationMinutes);
+        }
+    }
+    get sessionDate() {
+        return this._sessionDate;
+    }
+    get rpeVo() {
+        return this._rpeVo;
+    }
+    get duration() {
+        return this._durationVo;
+    }
+    get seriesRegistradas() {
+        return (this.sets || []).map((s) => s.toValueObject());
     }
     totalVolume() {
         return this.sets

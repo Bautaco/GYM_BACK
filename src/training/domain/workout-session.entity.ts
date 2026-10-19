@@ -1,6 +1,24 @@
 import { LoggedSet } from './logged-set.entity.js';
+import { Rpe } from './value-objects/rpe.vo.js';
+import { SessionDate } from './value-objects/session-date.vo.js';
+import { Duration } from './value-objects/duration.vo.js';
+import { SerieRegistrada } from './value-objects/serie-registrada.vo.js';
 
+/**
+ * Raíz de Agregado: WorkoutSession (Sesión de Entrenamiento).
+ * Bounded Context: TrainingContext.
+ *
+ * Integra y valida los Value Objects definidos en SPMP:
+ * - RPE (Escala 1 a 10)
+ * - SessionDate (Fecha y hora de ejecución)
+ * - Duration (Duración en minutos)
+ * - SerieRegistrada / PesoKg (Series y cargas ejecutadas)
+ */
 export class WorkoutSession {
+  private readonly _sessionDate: SessionDate;
+  private readonly _rpeVo?: Rpe;
+  private readonly _durationVo?: Duration;
+
   constructor(
     public readonly id: string,
     public athleteId: string,
@@ -13,7 +31,32 @@ export class WorkoutSession {
     public notes?: string,
     public rpe?: number, // RF-13: Calificación de esfuerzo percibido (1 a 10)
     public createdAt?: Date,
-  ) {}
+    public durationMinutes?: number, // Duración en minutos
+  ) {
+    this._sessionDate = new SessionDate(date);
+    if (rpe !== undefined && rpe !== null) {
+      this._rpeVo = new Rpe(rpe);
+    }
+    if (durationMinutes !== undefined && durationMinutes !== null) {
+      this._durationVo = new Duration(durationMinutes);
+    }
+  }
+
+  get sessionDate(): SessionDate {
+    return this._sessionDate;
+  }
+
+  get rpeVo(): Rpe | undefined {
+    return this._rpeVo;
+  }
+
+  get duration(): Duration | undefined {
+    return this._durationVo;
+  }
+
+  get seriesRegistradas(): SerieRegistrada[] {
+    return (this.sets || []).map((s) => s.toValueObject());
+  }
 
   totalVolume(): number {
     return this.sets

@@ -1,4 +1,8 @@
 import { LoggedSet } from './logged-set.entity.js';
+import { Rpe } from './value-objects/rpe.vo.js';
+import { SessionDate } from './value-objects/session-date.vo.js';
+import { Duration } from './value-objects/duration.vo.js';
+import { SerieRegistrada } from './value-objects/serie-registrada.vo.js';
 export declare class WorkoutSession {
     readonly id: string;
     athleteId: string;
@@ -11,7 +15,15 @@ export declare class WorkoutSession {
     notes?: string | undefined;
     rpe?: number | undefined;
     createdAt?: Date | undefined;
-    constructor(id: string, athleteId: string, trainingPlanId: string, routineId: string, routineName: string, date: Date, completed: boolean, sets: LoggedSet[], notes?: string | undefined, rpe?: number | undefined, createdAt?: Date | undefined);
+    durationMinutes?: number | undefined;
+    private readonly _sessionDate;
+    private readonly _rpeVo?;
+    private readonly _durationVo?;
+    constructor(id: string, athleteId: string, trainingPlanId: string, routineId: string, routineName: string, date: Date, completed: boolean, sets: LoggedSet[], notes?: string | undefined, rpe?: number | undefined, createdAt?: Date | undefined, durationMinutes?: number | undefined);
+    get sessionDate(): SessionDate;
+    get rpeVo(): Rpe | undefined;
+    get duration(): Duration | undefined;
+    get seriesRegistradas(): SerieRegistrada[];
     totalVolume(): number;
     maxWeightForExercise(exerciseId: string): number;
     max1RMForExercise(exerciseId: string): number;

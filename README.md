@@ -7,9 +7,9 @@
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
 
-Servicio Backend modular, desacoplado y de nivel empresarial diseñado para la **prescripción, gestión y auditoría del entrenamiento físico y la progresión biomecánica** entre entrenadores profesionales, atletas y administradores del sistema. Construido bajo principios de **Domain-Driven Design (DDD)** y Arquitectura en Capas Limpias con **NestJS**, **TypeORM** y **TypeScript**.
+Servicio Backend modular, desacoplado y de nivel empresarial diseñado para la **prescripción, gestión y auditoría del entrenamiento físico y la progresión biomecánica** entre entrenadores profesionales, atletas y administradores del sistema. Construido bajo principios de **Domain-Driven Design (DDD)** y Arquitectura en Capas Limpias con **NestJS**, **TypeORM**, **Vitest** y **TypeScript**.
 
 ---
 
@@ -21,9 +21,10 @@ Este microservicio backend actúa como el núcleo de lógica de negocio, validac
 - **Control de Acceso Basado en Roles (RBAC Estricto)**: Tres roles bien definidos: **`ADMIN`**, **`ENTRENADOR`** y **`ATLETA`**, gobernados mediante autenticación criptográfica vía JWT y guardias declarativas (`@Roles()`, `RolesGuard`).
 - **Gestión Centralizada de Usuarios (Sin Registro Público Abierto)**: La creación de nuevas cuentas de entrenadores y atletas está restringida exclusivamente al administrador (`ADMIN`), garantizando control sobre el acceso institucional.
 - **Catálogo Multimedia de Ejercicios**: Administración técnica completa (CRUD) con clasificación por grupo muscular, zonas biomecánicas trabajadas y enlace a material audiovisual in-app (con soporte para YouTube estándar, YouTube Shorts y videos directos).
-- **Prescripción y Versionado de Planes**: Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos). Al activar un nuevo plan para un atleta, las versiones anteriores se archivan automáticamente para mantener una única versión activa.
+- **Prescripción y Versionado de Planes**: Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos, cadencia/tempo). Al activar un nuevo plan para un atleta, las versiones anteriores se archivan automáticamente para mantener una única versión activa.
 - **Gestión de Plantillas de Rutina (Templates)**: Biblioteca de rutinas reutilizables para que los entrenadores puedan agilizar la prescripción de programas.
 - **Registro Real de Ejecución (Workout Sessions)**: Registro granular de marcas reales (peso levantado en kg y repeticiones logradas por serie), cálculo de RPE (escala Borg/RPE) y feedback de fatiga.
+- **Value Objects Puros e Inmutables (SPMP 6.5.2 & 6.8.5)**: Modelado táctico con `Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration` y `SessionDate` garantizando autovalidación fail-fast y sin efectos colaterales de mutabilidad.
 - **Detección de Récords Personales (PRs)**: Identificación de cargas máximas históricas por ejercicio superadas durante las sesiones.
 - **Métricas Antropométricas y Analíticas**: Registro cronológico de peso corporal, cálculo de progresión de cargas máximas y cálculo de tasa de adherencia al plan de entrenamiento.
 - **Autogestión de Perfil y Credenciales**: Modificación de datos personales, teléfono, notas del atleta, selección de avatares y cambio seguro de contraseñas con verificación mediante `bcrypt`.
@@ -62,22 +63,32 @@ GYM_BACK/
 │   │       └── dtos/                     # LoginDto, CreateUserAdminDto, UpdateProfileDto
 │   │
 │   ├── training/                         # 🏋️ Bounded Context: Entrenamiento y Métricas
-│   │   ├── domain/                       # Entidades Puras de Negocio
+│   │   ├── domain/                       # Entidades Puras de Negocio y Value Objects
+│   │   │   ├── value-objects/            # 💎 Value Objects (SPMP 6.5.2 & 6.8.5)
+│   │   │   │   ├── rpe.vo.ts             # Escala de esfuerzo subjetivo (1 a 10)
+│   │   │   │   ├── peso-kg.vo.ts         # Peso levantado en serie (≥ 0 kg)
+│   │   │   │   ├── weight.vo.ts          # Peso corporal antropométrico (> 0 kg)
+│   │   │   │   ├── duration.vo.ts        # Duración de la sesión en minutos (≥ 0)
+│   │   │   │   ├── session-date.vo.ts    # Fecha/hora inmutable con copia defensiva
+│   │   │   │   ├── serie-registrada.vo.ts# Serie atómica inmutable (SPMP 6.5.2)
+│   │   │   │   ├── value-objects.spec.ts # Suite de 23 tests de Value Objects
+│   │   │   │   └── index.ts              # Exportador unificado de VOs
 │   │   │   ├── exercise.entity.ts        # Agregado Ejercicio
 │   │   │   ├── training-plan.entity.ts   # Aggregate Root: TrainingPlan
 │   │   │   ├── routine.entity.ts         # Entidad Routine (parte del agregado Plan)
 │   │   │   ├── exercise-item.entity.ts   # Item de ejercicio con series/reps sugeridas
 │   │   │   ├── workout-session.entity.ts # Aggregate Root: Sesión de Entrenamiento ejecutada
-│   │   │   ├── logged-set.entity.ts      # Series ejecutadas con peso y reps reales
-│   │   │   ├── body-weight.entity.ts     # Registro antropométrico
+│   │   │   ├── logged-set.entity.ts      # Entidad conectora relacional con TypeORM
+│   │   │   ├── body-weight-record.entity.ts # Entidad Registro antropométrico (AnalyticsContext)
 │   │   │   ├── routine-template.entity.ts# Agregado Plantilla de Rutina
 │   │   │   ├── exercise.repository.interface.ts
 │   │   │   ├── training-plan.repository.interface.ts
-│   │   │   └── workout-session.repository.interface.ts
+│   │   │   ├── workout-session.repository.interface.ts
+│   │   │   └── body-weight.repository.interface.ts
 │   │   ├── application/                  # Casos de Uso (Orquestación del Dominio)
 │   │   │   ├── exercise.service.ts       # CRUD y catálogo de ejercicios
 │   │   │   ├── training-plan.service.ts  # Creación, versionado y consulta de planes
-│   │   │   ├── workout-session.service.ts# Registro de series y finalización de sesión
+│   │   │   ├── workout-session.service.ts# Registro de series y detección de PRs
 │   │   │   ├── body-weight.service.ts    # Historial de pesajes
 │   │   │   ├── analytics.service.ts      # Progresión de cargas y cálculo de adherencia
 │   │   │   └── routine-template.service.ts# Biblioteca de plantillas de entrenamiento
@@ -93,6 +104,7 @@ GYM_BACK/
 │   │   │   ├── typeorm-exercise.repository.ts
 │   │   │   ├── typeorm-training-plan.repository.ts
 │   │   │   ├── typeorm-workout-session.repository.ts
+│   │   │   ├── typeorm-body-weight.repository.ts
 │   │   │   ├── typeorm-routine-template.repository.ts
 │   │   │   └── database-seeder.service.ts# Sembrado automático de datos demo
 │   │   └── presentation/                 # Controladores y Validadores de Entrada
@@ -108,16 +120,16 @@ GYM_BACK/
 │   └── main.ts                           # Bootstrap, Swagger/Pipes/Filtros globales
 ```
 
-### Bounded Contexts y Raíces de Agregado (Aggregate Roots)
+### Bounded Contexts, Raíces de Agregado (Aggregate Roots) y Value Objects
 
-| Bounded Context | Raíz de Agregado | Entidades / Value Objects Internos | Invariantes de Negocio |
+| Bounded Context | Raíz de Agregado | Entidades Internas y Value Objects (VOs) | Invariantes y Reglas de Dominio |
 | :--- | :--- | :--- | :--- |
-| **Users** | `User` | Role (`ADMIN`, `ENTRENADOR`, `ATLETA`), Email, PasswordHash, AvatarUrl | El correo es estrictamente único. Las contraseñas se almacenan con salt `bcrypt`. Solo el `ADMIN` puede crear o eliminar usuarios. Ningún usuario puede alterar su propio rol. |
+| **Users** | `User` | **VOs**: Role (`ADMIN`, `ENTRENADOR`, `ATLETA`), Email, PasswordHash, AvatarUrl | El correo es estrictamente único. Las contraseñas se almacenan con salt `bcrypt`. Solo el `ADMIN` puede crear o eliminar usuarios. Ningún usuario puede alterar su propio rol. |
 | **Training (Catálogo)** | `Exercise` | MuscleGroup, TargetZones, Equipment, VideoUrl | Nombre requerido, grupo muscular obligatorio, URL de video normalizada. Solo editables por entrenadores. |
-| **Training (Prescripción)** | `TrainingPlan` | `Routine`, `ExerciseItem` | Solo puede haber **un plan en estado `ACTIVO`** por atleta a la vez. Al crear un nuevo plan, los anteriores pasan a archivados. |
-| **Training (Plantillas)** | `RoutineTemplate`| `TemplateExerciseItem`, TrainerId | Plantillas reutilizables para entrenadores para agilizar armado de rutinas. |
-| **Training (Ejecución)** | `WorkoutSession` | `LoggedSet`, RPE, Duration, SessionDate | Las series registradas no admiten pesos negativos ni repeticiones menores a cero. Una sesión finalizada queda sellada. |
-| **Analytics & Antropometría**| `BodyWeightRecord`| Weight (kg), Date | El peso debe ser numérico positivo válido. Se indexa por atleta y marca temporal. |
+| **Training (Prescripción)** | `TrainingPlan` | **Entidades**: `Routine`, `ExerciseItem`<br>**VOs**: DateRange (inicio/fin), Cadence ("3-0-1-0") | Solo puede haber **un plan en estado `ACTIVO`** por atleta a la vez. Al crear un nuevo plan, los anteriores pasan a archivados. |
+| **Training (Plantillas)** | `RoutineTemplate`| **Entidades**: `TemplateExerciseItem`, TrainerId | Plantillas reutilizables para entrenadores para agilizar armado de rutinas. |
+| **Training (Ejecución)** | `WorkoutSession` | **VOs**: `Rpe` (1 a 10), `PesoKg` (≥ 0), `Duration` (minutos ≥ 0), `SessionDate` (inmutable), `SerieRegistrada`<br>**Entidad Relacional**: `LoggedSet` | Autovalidación en constructor de VOs. No admite pesos negativos ni repeticiones menores a cero. Una sesión finalizada queda sellada. `LoggedSet` resuelve la compatibilidad entre el SPMP 6.5.2 (VO SerieRegistrada) y la Memoria Técnica 3.4 (UUID persistido). |
+| **Analytics & Antropometría**| `BodyWeightRecord`| **VO**: `Weight` (kg > 0)<br>**VO**: `SessionDate` (Date) | El peso debe ser numérico positivo válido (`> 0`). Se indexa por atleta y marca temporal. |
 
 ---
 
@@ -269,26 +281,32 @@ Authorization: Bearer <JWT_TOKEN>
 
 ## 🧪 5. Estrategia de Testeo y Aseguramiento de Calidad (QA)
 
-El backend incorpora suites automatizadas de pruebas unitarias y de integración end-to-end con **Jest** y `@nestjs/testing`:
+El backend incorpora suites automatizadas de pruebas unitarias y de integración end-to-end implementadas con **Vitest** (v4.1.2), `@vitest/coverage-v8`, `@nestjs/testing` y `supertest`:
 
 ```bash
-# Ejecutar todas las pruebas unitarias
-npm run test
+# Ejecutar todas las pruebas unitarias (35 pruebas automatizadas pasando al 100%)
+npm test
 
-# Ejecutar pruebas en modo observador (TDD)
+# Ejecutar pruebas en modo observador interactivo (TDD)
 npm run test:watch
 
-# Generar reporte de cobertura de código
+# Generar reporte completo de cobertura de código
 npm run test:cov
 
-# Ejecutar pruebas End-to-End (E2E)
+# Ejecutar pruebas End-to-End (E2E) con configuración dedicada
 npm run test:e2e
 ```
 
-### Arquitectura de Pruebas
-1. **Reglas de Dominio**: Se evalúan de forma pura, sin dependencias de base de datos ni frameworks, comprobando que las entidades (`TrainingPlan`, `WorkoutSession`, `User`) apliquen correctamente sus invariantes (ej. no permitir series negativas, versionado de planes, inmutabilidad de roles).
-2. **Servicios de Aplicación**: Se prueban inyectando implementaciones simuladas (mocks) de las interfaces de repositorios para aislar la orquestación de la infraestructura.
-3. **Controladores e Integración**: Verificación de pipes de validación, manejo de códigos de estado HTTP (200, 201, 204, 400, 401, 403, 404) y protección de rutas mediante `@UseGuards(JwtAuthGuard, RolesGuard)`.
+### Arquitectura de Pruebas y Suites Implementadas
+1. **Value Objects y Reglas de Negocio Puras (`value-objects.spec.ts`)**:
+   - **23 pruebas exhaustivas** que validan inmutabilidad (sin setters, copias defensivas), comparación profunda de atributos (`equals`), validaciones de rango (RPE 1-10, peso ≥ 0, peso corporal > 0, duración ≥ 0) e interoperabilidad con entidades persistidas.
+2. **Servicios de Aplicación (Historias de Usuario)**:
+   - **HU-01 / HU-02 ([`training-plan.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/training-plan.service.spec.ts))**: Validación de creación de planes, desactivación automática de planes previos y validación cronológica de fechas.
+   - **HU-03 ([`workout-session.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/workout-session.service.spec.ts))**: Registro de series, validación de cargas no negativas y detección de Récords Personales (PRs).
+   - **HU-04 ([`analytics.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/analytics.service.spec.ts))**: Progresión de cargas (1RM y peso máximo) y tasa de adherencia.
+   - **Catálogo ([`exercise.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/exercise.service.spec.ts))**: Mantenimiento del catálogo técnico de ejercicios.
+3. **Controladores e Integración HTTP ([`app.e2e-spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/test/app.e2e-spec.ts))**:
+   - Verificación del ciclo de vida del servidor NestJS, inyección de dependencias y respuestas HTTP con `supertest`.
 
 ---
 

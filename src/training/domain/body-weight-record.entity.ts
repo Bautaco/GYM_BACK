@@ -1,4 +1,12 @@
+import { Weight } from './value-objects/weight.vo.js';
+
+/**
+ * Entidad de dominio BodyWeightRecord (AnalyticsContext).
+ * Encapsula el Value Object Weight para el peso corporal antropométrico.
+ */
 export class BodyWeightRecord {
+  private readonly _weightVo: Weight;
+
   constructor(
     public readonly id: string,
     public athleteId: string,
@@ -6,8 +14,10 @@ export class BodyWeightRecord {
     public recordedAt: Date,
     public notes?: string,
   ) {
-    if (weightKg <= 0) {
-      throw new Error('El peso corporal debe ser un número positivo mayor a 0');
-    }
+    this._weightVo = new Weight(weightKg);
+  }
+
+  get weight(): Weight {
+    return this._weightVo;
   }
 }
