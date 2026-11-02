@@ -21,7 +21,9 @@ Este microservicio backend actúa como el núcleo de lógica de negocio, validac
 - **Control de Acceso Basado en Roles (RBAC Estricto)**: Tres roles bien definidos: **`ADMIN`**, **`ENTRENADOR`** y **`ATLETA`**, gobernados mediante autenticación criptográfica vía JWT y guardias declarativas (`@Roles()`, `RolesGuard`).
 - **Gestión Centralizada de Usuarios (Sin Registro Público Abierto)**: La creación de nuevas cuentas de entrenadores y atletas está restringida exclusivamente al administrador (`ADMIN`), garantizando control sobre el acceso institucional.
 - **Catálogo Multimedia de Ejercicios**: Administración técnica completa (CRUD) con clasificación por grupo muscular, zonas biomecánicas trabajadas y enlace a material audiovisual in-app (con soporte para YouTube estándar, YouTube Shorts y videos directos).
-- **Prescripción y Versionado de Planes**: Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos, cadencia/tempo). Al activar un nuevo plan para un atleta, las versiones anteriores se archivan automáticamente para mantener una única versión activa.
+- **Prescripción y Versionado de Planes**: Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos, cadencia/tempo). Al activar un nuevo plan para un atleta, las versiones anteriores se archivan automáticamente para mantener una única versión activa. Soporte para **frecuencia semanal** y **sesiones por día** como parámetros configurables del plan.
+- **Historial Cronológico de Planes por Atleta**: Consulta del historial completo de planes asignados con estados calculados dinámicamente (`En Curso`, `Programado`, `Finalizado`), edición de planes existentes y validación de superposición de fechas.
+- **Validación de Superposición de Fechas (Overlap Validation)**: Validación estricta en el backend que impide asignar una rutina a un atleta si el rango de fechas se superpone con otra rutina activa o programada previamente.
 - **Gestión de Plantillas de Rutina (Templates)**: Biblioteca de rutinas reutilizables para que los entrenadores puedan agilizar la prescripción de programas.
 - **Registro Real de Ejecución (Workout Sessions)**: Registro granular de marcas reales (peso levantado en kg y repeticiones logradas por serie), cálculo de RPE (escala Borg/RPE) y feedback de fatiga.
 - **Value Objects Puros e Inmutables (SPMP 6.5.2 & 6.8.5)**: Modelado táctico con `Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration` y `SessionDate` garantizando autovalidación fail-fast y sin efectos colaterales de mutabilidad.
@@ -126,7 +128,7 @@ GYM_BACK/
 | :--- | :--- | :--- | :--- |
 | **Users** | `User` | **VOs**: Role (`ADMIN`, `ENTRENADOR`, `ATLETA`), Email, PasswordHash, AvatarUrl | El correo es estrictamente único. Las contraseñas se almacenan con salt `bcrypt`. Solo el `ADMIN` puede crear o eliminar usuarios. Ningún usuario puede alterar su propio rol. |
 | **Training (Catálogo)** | `Exercise` | MuscleGroup, TargetZones, Equipment, VideoUrl | Nombre requerido, grupo muscular obligatorio, URL de video normalizada. Solo editables por entrenadores. |
-| **Training (Prescripción)** | `TrainingPlan` | **Entidades**: `Routine`, `ExerciseItem`<br>**VOs**: DateRange (inicio/fin), Cadence ("3-0-1-0") | Solo puede haber **un plan en estado `ACTIVO`** por atleta a la vez. Al crear un nuevo plan, los anteriores pasan a archivados. |
+| **Training (Prescripción)** | `TrainingPlan` | **Entidades**: `Routine`, `ExerciseItem`<br>**VOs**: DateRange (inicio/fin), Cadence ("3-0-1-0") | Solo puede haber **un plan en estado `ACTIVO`** por atleta a la vez. Al crear un nuevo plan, los anteriores pasan a archivados. Soporta `frequencyPerWeek` (1-7) y `sessionsPerDay` (≥ 1). Validación estricta de superposición de fechas: no se permite asignar un plan cuyo rango [inicio–fin] se solape con otro plan activo o programado del mismo atleta. |
 | **Training (Plantillas)** | `RoutineTemplate`| **Entidades**: `TemplateExerciseItem`, TrainerId | Plantillas reutilizables para entrenadores para agilizar armado de rutinas. |
 | **Training (Ejecución)** | `WorkoutSession` | **VOs**: `Rpe` (1 a 10), `PesoKg` (≥ 0), `Duration` (minutos ≥ 0), `SessionDate` (inmutable), `SerieRegistrada`<br>**Entidad Relacional**: `LoggedSet` | Autovalidación en constructor de VOs. No admite pesos negativos ni repeticiones menores a cero. Una sesión finalizada queda sellada. `LoggedSet` resuelve la compatibilidad entre el SPMP 6.5.2 (VO SerieRegistrada) y la Memoria Técnica 3.4 (UUID persistido). |
 | **Analytics & Antropometría**| `BodyWeightRecord`| **VO**: `Weight` (kg > 0)<br>**VO**: `SessionDate` (Date) | El peso debe ser numérico positivo válido (`> 0`). Se indexa por atleta y marca temporal. |
@@ -256,9 +258,10 @@ Authorization: Bearer <JWT_TOKEN>
 
 | Método | Endpoint | Roles | Descripción | Request Body / Response |
 | :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/training-plans` | `ENTRENADOR` | Crea y activa un plan de entrenamiento con rutinas | **Body**: `{ "nombre": "Fuerza 4 Días", "atletaId": "...", "fechaInicio": "2026-10-01", "fechaFin": "2026-11-01", "rutinas": [ { "nombreDia": "Día 1 - Torso", "items": [ { "ejercicioId": "...", "seriesObjetivo": 4, "repeticionesSugeridas": "6-8", "descansoSegundos": 120 } ] } ] }` |
+| `POST` | `/api/v1/training-plans` | `ENTRENADOR` | Crea y activa un plan de entrenamiento con rutinas. Valida que no exista superposición de fechas con planes activos/programados del mismo atleta. | **Body**: `{ "nombre": "Fuerza 4 Días", "atletaId": "...", "fechaInicio": "2026-10-01", "fechaFin": "2026-11-01", "frequencyPerWeek": 4, "sessionsPerDay": 1, "rutinas": [ { "nombreDia": "Día 1 - Torso", "items": [...] } ] }` |
+| `PUT` | `/api/v1/training-plans/:id` | `ENTRENADOR` | Actualiza un plan existente (nombre, fechas, rutinas, frecuencia). Valida superposición de fechas excluyendo el propio plan. | **Body**: Idéntico a `POST`. **Respuesta 200**: Plan actualizado |
 | `GET` | `/api/v1/training-plans/athlete/:id` | Autenticado | Retorna el plan de entrenamiento **ACTIVO** del atleta | **Respuesta 200**: Objeto `TrainingPlan` activo con rutinas e items |
-| `GET` | `/api/v1/training-plans/athlete/:id/all` | Autenticado | Historial completo de planes del atleta | **Respuesta 200**: `Array<TrainingPlan>` (activos e históricos) |
+| `GET` | `/api/v1/training-plans/athlete/:id/all` | Autenticado | Historial completo de planes del atleta (activos, programados y finalizados) | **Respuesta 200**: `Array<TrainingPlan>` ordenado cronológicamente |
 | `GET` | `/api/v1/training-plans/:id` | Autenticado | Detalle de un plan por su ID | **Respuesta 200**: Objeto `TrainingPlan` |
 
 ### ⏱️ Módulo: Ejecución de Sesiones (`/api/v1/training-sessions`)
@@ -284,7 +287,7 @@ Authorization: Bearer <JWT_TOKEN>
 El backend incorpora suites automatizadas de pruebas unitarias y de integración end-to-end implementadas con **Vitest** (v4.1.2), `@vitest/coverage-v8`, `@nestjs/testing` y `supertest`:
 
 ```bash
-# Ejecutar todas las pruebas unitarias (35 pruebas automatizadas pasando al 100%)
+# Ejecutar todas las pruebas unitarias (36 pruebas automatizadas pasando al 100%)
 npm test
 
 # Ejecutar pruebas en modo observador interactivo (TDD)
@@ -301,7 +304,7 @@ npm run test:e2e
 1. **Value Objects y Reglas de Negocio Puras (`value-objects.spec.ts`)**:
    - **23 pruebas exhaustivas** que validan inmutabilidad (sin setters, copias defensivas), comparación profunda de atributos (`equals`), validaciones de rango (RPE 1-10, peso ≥ 0, peso corporal > 0, duración ≥ 0) e interoperabilidad con entidades persistidas.
 2. **Servicios de Aplicación (Historias de Usuario)**:
-   - **HU-01 / HU-02 ([`training-plan.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/training-plan.service.spec.ts))**: Validación de creación de planes, desactivación automática de planes previos y validación cronológica de fechas.
+   - **HU-01 / HU-02 / HU-13 ([`training-plan.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/training-plan.service.spec.ts))**: Validación de creación de planes, desactivación automática de planes previos, validación cronológica de fechas y **validación de superposición de fechas (overlap) entre planes** (CP-01-03).
    - **HU-03 ([`workout-session.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/workout-session.service.spec.ts))**: Registro de series, validación de cargas no negativas y detección de Récords Personales (PRs).
    - **HU-04 ([`analytics.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/analytics.service.spec.ts))**: Progresión de cargas (1RM y peso máximo) y tasa de adherencia.
    - **Catálogo ([`exercise.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/exercise.service.spec.ts))**: Mantenimiento del catálogo técnico de ejercicios.
@@ -327,5 +330,5 @@ Al iniciar con `SEED_DATABASE=true`, la base de datos se sembrará con las sigui
 | :--- | :--- | :--- | :--- |
 | **ADMIN** | `admin@gym.com` | `admin123` | Control total de usuarios (crear/eliminar entrenadores y atletas), auditoría global |
 | **ENTRENADOR** | `entrenador@gym.com` | `admin123` | Control de catálogo de ejercicios, creación y asignación de planes, biblioteca de plantillas, auditoría de métricas de alumnos |
-| **ATLETA 1** | `atleta@gym.com` | `atleta123` | Plan de 2 días activo, historial de series y pesajes cargados, registro interactivo |
+| **ATLETA 1** | `atleta@gym.com` | `atleta123` | Plan de 2 días activo (frecuencia: 3 días/semana, 1 sesión/día), historial de series y pesajes cargados, registro interactivo |
 | **ATLETA 2** | `marcos@gym.com` | `atleta123` | Alumno registrado disponible para asignación de nuevos planes de entrenamiento |
