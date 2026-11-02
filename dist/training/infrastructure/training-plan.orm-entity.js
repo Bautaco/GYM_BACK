@@ -18,6 +18,8 @@ let TrainingPlanOrmEntity = class TrainingPlanOrmEntity {
     startDate;
     endDate;
     isActive;
+    frequencyPerWeek;
+    sessionsPerDay;
     routines;
     createdAt;
     updatedAt;
@@ -58,6 +60,14 @@ __decorate([
     Column({ default: true }),
     __metadata("design:type", Boolean)
 ], TrainingPlanOrmEntity.prototype, "isActive", void 0);
+__decorate([
+    Column({ type: 'int', default: 3 }),
+    __metadata("design:type", Number)
+], TrainingPlanOrmEntity.prototype, "frequencyPerWeek", void 0);
+__decorate([
+    Column({ type: 'int', default: 1 }),
+    __metadata("design:type", Number)
+], TrainingPlanOrmEntity.prototype, "sessionsPerDay", void 0);
 __decorate([
     OneToMany('RoutineOrmEntity', 'trainingPlan', {
         cascade: true,

@@ -37,6 +37,12 @@ export class TrainingPlanOrmEntity {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column({ type: 'int', default: 3 })
+  frequencyPerWeek: number;
+
+  @Column({ type: 'int', default: 1 })
+  sessionsPerDay: number;
+
   @OneToMany('RoutineOrmEntity', 'trainingPlan', {
     cascade: true,
     eager: true,

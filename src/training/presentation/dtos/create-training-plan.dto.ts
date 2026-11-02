@@ -81,6 +81,16 @@ export class CreateTrainingPlanDto {
   @IsDateString({}, { message: 'La fecha de fin debe tener formato YYYY-MM-DD' })
   endDate: string;
 
+  @IsOptional()
+  @IsInt({ message: 'La frecuencia semanal debe ser un número entero' })
+  @Min(1, { message: 'Debe tener al menos 1 día por semana' })
+  frequencyPerWeek?: number;
+
+  @IsOptional()
+  @IsInt({ message: 'Las sesiones por día deben ser un número entero' })
+  @Min(1, { message: 'Debe tener al menos 1 sesión por día' })
+  sessionsPerDay?: number;
+
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => RoutineDto)

@@ -19,5 +19,7 @@ export declare class CreateTrainingPlanDto {
     athleteId: string;
     startDate: string;
     endDate: string;
+    frequencyPerWeek?: number;
+    sessionsPerDay?: number;
     routines: RoutineDto[];
 }

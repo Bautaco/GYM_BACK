@@ -90,6 +90,8 @@ export class CreateTrainingPlanDto {
     athleteId;
     startDate;
     endDate;
+    frequencyPerWeek;
+    sessionsPerDay;
     routines;
 }
 __decorate([
@@ -112,6 +114,18 @@ __decorate([
     IsDateString({}, { message: 'La fecha de fin debe tener formato YYYY-MM-DD' }),
     __metadata("design:type", String)
 ], CreateTrainingPlanDto.prototype, "endDate", void 0);
+__decorate([
+    IsOptional(),
+    IsInt({ message: 'La frecuencia semanal debe ser un número entero' }),
+    Min(1, { message: 'Debe tener al menos 1 día por semana' }),
+    __metadata("design:type", Number)
+], CreateTrainingPlanDto.prototype, "frequencyPerWeek", void 0);
+__decorate([
+    IsOptional(),
+    IsInt({ message: 'Las sesiones por día deben ser un número entero' }),
+    Min(1, { message: 'Debe tener al menos 1 sesión por día' }),
+    __metadata("design:type", Number)
+], CreateTrainingPlanDto.prototype, "sessionsPerDay", void 0);
 __decorate([
     IsArray(),
     ValidateNested({ each: true }),

@@ -9,6 +9,8 @@ export declare class TrainingPlanOrmEntity {
     startDate: string;
     endDate: string;
     isActive: boolean;
+    frequencyPerWeek: number;
+    sessionsPerDay: number;
     routines: RoutineOrmEntity[];
     createdAt: Date;
     updatedAt: Date;

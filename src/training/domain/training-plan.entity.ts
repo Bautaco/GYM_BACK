@@ -13,6 +13,8 @@ export class TrainingPlan {
     public athleteName?: string,
     public trainerName?: string,
     public createdAt?: Date,
+    public frequencyPerWeek: number = 3,
+    public sessionsPerDay: number = 1,
   ) {}
 
   deactivate(): void {

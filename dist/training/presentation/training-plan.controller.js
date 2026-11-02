@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-import { Controller, Get, Post, Body, Param, UseGuards, HttpCode, HttpStatus, } from '@nestjs/common';
+import { Controller, Get, Post, Put, Body, Param, UseGuards, HttpCode, HttpStatus, } from '@nestjs/common';
 import { TrainingPlanService } from '../application/training-plan.service.js';
 import { CreateTrainingPlanDto } from './dtos/create-training-plan.dto.js';
 import { JwtAuthGuard } from '../../shared/guards/jwt-auth.guard.js';
@@ -33,6 +33,9 @@ let TrainingPlanController = class TrainingPlanController {
     }
     async createPlan(dto, user) {
         return this.planService.createPlan(dto, user.id, user.fullName);
+    }
+    async updatePlan(id, dto, user) {
+        return this.planService.updatePlan(id, dto, user.id, user.fullName);
     }
 };
 __decorate([
@@ -66,6 +69,16 @@ __decorate([
     __metadata("design:paramtypes", [CreateTrainingPlanDto, Object]),
     __metadata("design:returntype", Promise)
 ], TrainingPlanController.prototype, "createPlan", null);
+__decorate([
+    Put(':id'),
+    Roles(UserRole.ENTRENADOR),
+    __param(0, Param('id')),
+    __param(1, Body()),
+    __param(2, CurrentUser()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, CreateTrainingPlanDto, Object]),
+    __metadata("design:returntype", Promise)
+], TrainingPlanController.prototype, "updatePlan", null);
 TrainingPlanController = __decorate([
     Controller('api/v1/training-plans'),
     UseGuards(JwtAuthGuard, RolesGuard),

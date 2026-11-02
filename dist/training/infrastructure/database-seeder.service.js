@@ -217,7 +217,7 @@ let DatabaseSeederService = DatabaseSeederService_1 = class DatabaseSeederServic
         ], 'Trabajo de fuerza pura en bisagra de cadera y empuje vertical.');
         const now = new Date();
         const fourWeeksLater = new Date(now.getTime() + 28 * 24 * 60 * 60 * 1000);
-        const plan = new TrainingPlan('', 'Fuerza e Hipertrofia Fase 1 (4 Semanas)', athlete.id, trainer.id, now, fourWeeksLater, true, [routineDay1, routineDay2], athlete.fullName, trainer.fullName, now);
+        const plan = new TrainingPlan('', 'Fuerza e Hipertrofia Fase 1 (4 Semanas)', athlete.id, trainer.id, now, fourWeeksLater, true, [routineDay1, routineDay2], athlete.fullName, trainer.fullName, now, 3, 1);
         const savedPlan = await this.planRepo.save(plan);
         const pastDays = [21, 14, 7, 0];
         const weights = [77.2, 76.5, 75.9, 75.5];

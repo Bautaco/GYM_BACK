@@ -92,6 +92,33 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
     );
   });
 
+  it('CP-01-03 (Validación de superposición): Rechaza si las fechas se superponen con otra rutina activa o programada', async () => {
+    mockPlanRepo.findAllByAthleteId.mockResolvedValue([
+      {
+        id: 'existing-plan-1',
+        athleteId: 'athlete-1',
+        name: 'Rutina Activa',
+        startDate: new Date('2026-10-15'),
+        endDate: new Date('2026-11-15'),
+        isActive: true,
+      },
+    ]);
+
+    const dto = {
+      name: 'Plan Superpuesto',
+      athleteId: 'athlete-1',
+      startDate: '2026-11-01',
+      endDate: '2026-11-30',
+      routines: [],
+    };
+
+    await expect(service.createPlan(dto, 'trainer-1')).rejects.toThrow(
+      new BadRequestException(
+        'El alumno ya tiene una rutina asignada en el rango de fechas seleccionado',
+      ),
+    );
+  });
+
   it('CP-02-01: Obtiene el plan activo asignado al atleta', async () => {
     mockPlanRepo.findActiveByAthleteId.mockResolvedValue({
       id: 'plan-active-1',

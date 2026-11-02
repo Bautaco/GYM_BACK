@@ -6,7 +6,9 @@ export declare class TrainingPlanService {
     private readonly planRepo;
     private readonly userRepo;
     constructor(planRepo: ITrainingPlanRepository, userRepo: IUserRepository);
+    private validateNoDateOverlap;
     createPlan(dto: CreateTrainingPlanDto, trainerId: string, trainerName?: string): Promise<TrainingPlan>;
+    updatePlan(id: string, dto: CreateTrainingPlanDto, trainerId: string, trainerName?: string): Promise<TrainingPlan>;
     getActivePlanByAthlete(athleteId: string): Promise<TrainingPlan | null>;
     getAllPlansByAthlete(athleteId: string): Promise<TrainingPlan[]>;
     getPlanById(id: string): Promise<TrainingPlan>;

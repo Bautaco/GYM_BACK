@@ -7,4 +7,5 @@ export declare class TrainingPlanController {
     getAllPlansByAthlete(athleteId: string): Promise<import("../domain/training-plan.entity.js").TrainingPlan[]>;
     getById(id: string): Promise<import("../domain/training-plan.entity.js").TrainingPlan>;
     createPlan(dto: CreateTrainingPlanDto, user: any): Promise<import("../domain/training-plan.entity.js").TrainingPlan>;
+    updatePlan(id: string, dto: CreateTrainingPlanDto, user: any): Promise<import("../domain/training-plan.entity.js").TrainingPlan>;
 }

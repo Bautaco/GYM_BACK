@@ -2,6 +2,7 @@ import {
   Controller,
   Get,
   Post,
+  Put,
   Body,
   Param,
   UseGuards,
@@ -43,5 +44,15 @@ export class TrainingPlanController {
     @CurrentUser() user: any,
   ) {
     return this.planService.createPlan(dto, user.id, user.fullName);
+  }
+
+  @Put(':id')
+  @Roles(UserRole.ENTRENADOR)
+  async updatePlan(
+    @Param('id') id: string,
+    @Body() dto: CreateTrainingPlanDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.planService.updatePlan(id, dto, user.id, user.fullName);
   }
 }

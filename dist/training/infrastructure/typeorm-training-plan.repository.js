@@ -29,7 +29,7 @@ let TypeOrmTrainingPlanRepository = class TypeOrmTrainingPlanRepository {
             const items = (r.exerciseItems || []).map((i) => new ExerciseItem(i.id, i.exerciseId, i.exerciseName, i.targetSets, i.targetReps, i.targetWeightKg, i.restSeconds, i.notes, i.cadence));
             return new Routine(r.id, r.name, r.dayOfWeek, items, r.description);
         });
-        return new TrainingPlan(orm.id, orm.name, orm.athleteId, orm.trainerId, new Date(orm.startDate), new Date(orm.endDate), orm.isActive, routines, orm.athleteName, orm.trainerName, orm.createdAt);
+        return new TrainingPlan(orm.id, orm.name, orm.athleteId, orm.trainerId, new Date(orm.startDate), new Date(orm.endDate), orm.isActive, routines, orm.athleteName, orm.trainerName, orm.createdAt, orm.frequencyPerWeek ?? 3, orm.sessionsPerDay ?? 1);
     }
     toOrm(domain) {
         const orm = new TrainingPlanOrmEntity();
@@ -47,6 +47,8 @@ let TypeOrmTrainingPlanRepository = class TypeOrmTrainingPlanRepository {
             ? domain.endDate.toISOString().split('T')[0]
             : String(domain.endDate);
         orm.isActive = domain.isActive;
+        orm.frequencyPerWeek = domain.frequencyPerWeek ?? 3;
+        orm.sessionsPerDay = domain.sessionsPerDay ?? 1;
         orm.routines = (domain.routines || []).map((r) => {
             const routineOrm = new RoutineOrmEntity();
             if (r.id)
@@ -91,6 +93,13 @@ let TypeOrmTrainingPlanRepository = class TypeOrmTrainingPlanRepository {
         return found ? this.toDomain(found) : null;
     }
     async save(plan) {
+        if (plan.id) {
+            const routineRepo = this.repo.manager.getRepository(RoutineOrmEntity);
+            const existingRoutines = await routineRepo.find({ where: { trainingPlanId: plan.id } });
+            if (existingRoutines.length > 0) {
+                await routineRepo.remove(existingRoutines);
+            }
+        }
         const orm = this.toOrm(plan);
         const saved = await this.repo.save(orm);
         return this.toDomain(saved);

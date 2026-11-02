@@ -319,6 +319,8 @@ export class DatabaseSeederService implements OnApplicationBootstrap {
       athlete.fullName,
       trainer.fullName,
       now,
+      3, // frequencyPerWeek — 3 días por semana (Lun/Mié/Vie)
+      1, // sessionsPerDay  — 1 sesión por día
     );
 
     const savedPlan = await this.planRepo.save(plan);

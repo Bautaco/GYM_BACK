@@ -47,6 +47,8 @@ export class TypeOrmTrainingPlanRepository implements ITrainingPlanRepository {
       orm.athleteName,
       orm.trainerName,
       orm.createdAt,
+      orm.frequencyPerWeek ?? 3,
+      orm.sessionsPerDay ?? 1,
     );
   }
 
@@ -65,6 +67,8 @@ export class TypeOrmTrainingPlanRepository implements ITrainingPlanRepository {
       ? domain.endDate.toISOString().split('T')[0] 
       : String(domain.endDate);
     orm.isActive = domain.isActive;
+    orm.frequencyPerWeek = domain.frequencyPerWeek ?? 3;
+    orm.sessionsPerDay = domain.sessionsPerDay ?? 1;
 
     orm.routines = (domain.routines || []).map((r) => {
       const routineOrm = new RoutineOrmEntity();
@@ -113,6 +117,13 @@ export class TypeOrmTrainingPlanRepository implements ITrainingPlanRepository {
   }
 
   async save(plan: TrainingPlan): Promise<TrainingPlan> {
+    if (plan.id) {
+      const routineRepo = this.repo.manager.getRepository(RoutineOrmEntity);
+      const existingRoutines = await routineRepo.find({ where: { trainingPlanId: plan.id } });
+      if (existingRoutines.length > 0) {
+        await routineRepo.remove(existingRoutines);
+      }
+    }
     const orm = this.toOrm(plan);
     const saved = await this.repo.save(orm);
     return this.toDomain(saved);
