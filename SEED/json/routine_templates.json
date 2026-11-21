@@ -1,0 +1,29 @@
+[
+  {
+    "id": "50f40755-ba78-4aef-8dba-347be4c05a6e",
+    "trainerId": "SYSTEM",
+    "name": "Rutina de Empuje (Push) - Pecho, Hombro y Tríceps",
+    "description": "Enfocada en el desarrollo de la fuerza en empujes horizontales y verticales.",
+    "category": "Fuerza e Hipertrofia",
+    "exerciseItemsJson": "[{\"id\":\"\",\"exerciseId\":\"28d4f0c8-dd5c-4196-ad10-9d323abe85d7\",\"exerciseName\":\"Press de Banca Plano\",\"targetSets\":4,\"targetReps\":8,\"targetWeightKg\":70,\"restSeconds\":120,\"notes\":\"Retracción escapular activa\",\"cadence\":\"3-0-1-0\"}]",
+    "createdAt": "2026-10-14T03:08:47.758Z"
+  },
+  {
+    "id": "a3023bb5-ac39-44fd-8148-c67a983e9dc4",
+    "trainerId": "SYSTEM",
+    "name": "Rutina de Tracción (Pull) - Espalda y Bíceps",
+    "description": "Desarrollo de densidad y amplitud dorsal.",
+    "category": "Fuerza e Hipertrofia",
+    "exerciseItemsJson": "[{\"id\":\"\",\"exerciseId\":\"f9162763-b49a-4a3f-a171-015c823d7f19\",\"exerciseName\":\"Peso Muerto Convencional\",\"targetSets\":3,\"targetReps\":5,\"targetWeightKg\":100,\"restSeconds\":180,\"notes\":\"Bloqueo dorsal neutro\",\"cadence\":\"2-1-1-0\"},{\"id\":\"\",\"exerciseId\":\"4397a259-0e28-481f-89ab-5a4ab14f8714\",\"exerciseName\":\"Dominadas Pronas (Pull-ups)\",\"targetSets\":4,\"targetReps\":10,\"targetWeightKg\":0,\"restSeconds\":90,\"notes\":\"Rango completo de movimiento\",\"cadence\":\"3-0-1-1\"}]",
+    "createdAt": "2026-10-14T03:08:47.838Z"
+  },
+  {
+    "id": "9fff9c05-394b-4165-951d-7560ee2ebb4e",
+    "trainerId": "SYSTEM",
+    "name": "Rutina de Piernas (Legs) - Cuádriceps e Isquios",
+    "description": "Máxima activación del tren inferior y estabilidad de cadera.",
+    "category": "Fuerza e Hipertrofia",
+    "exerciseItemsJson": "[{\"id\":\"\",\"exerciseId\":\"531448b1-2a30-4147-b9f7-d97fb80d36d8\",\"exerciseName\":\"Sentadilla Profunda\",\"targetSets\":4,\"targetReps\":8,\"targetWeightKg\":80,\"restSeconds\":150,\"notes\":\"Profundidad por debajo del paralelo\",\"cadence\":\"3-1-1-0\"}]",
+    "createdAt": "2026-10-14T03:08:47.855Z"
+  }
+]

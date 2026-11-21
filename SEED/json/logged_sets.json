@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "6366d302-2124-4e8e-b4c6-f47bb5015d95",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "506a1d38-4fde-4e5c-ad2d-739ed2bd89bf"
+  },
+  {
+    "id": "1873495e-716e-44f8-a568-9827823de6eb",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "506a1d38-4fde-4e5c-ad2d-739ed2bd89bf"
+  },
+  {
+    "id": "5fc96077-fbab-49f1-bad6-304660cb966b",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "506a1d38-4fde-4e5c-ad2d-739ed2bd89bf"
+  },
+  {
+    "id": "a663c8fc-5b90-44fc-8b0c-bd8c8c3bf954",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "ec879803-034b-4925-b2a7-acd7308d1996"
+  },
+  {
+    "id": "6037a2c0-9a0a-4451-90dd-0a62498ea273",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "ec879803-034b-4925-b2a7-acd7308d1996"
+  },
+  {
+    "id": "86856f87-6b03-4eb5-b139-f437a3f251c0",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 62.5,
+    "isCompleted": true,
+    "sessionId": "ec879803-034b-4925-b2a7-acd7308d1996"
+  },
+  {
+    "id": "d6743150-e7f9-4ffe-89c4-1201232ce8c1",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "d33af983-2c78-4230-96bc-6400a0f19211"
+  },
+  {
+    "id": "6dacd33e-8f75-4e29-af7d-fd2df244990d",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "d33af983-2c78-4230-96bc-6400a0f19211"
+  },
+  {
+    "id": "a4c0e5eb-db43-452a-a3f2-9ca7ba877083",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "d33af983-2c78-4230-96bc-6400a0f19211"
+  },
+  {
+    "id": "e70d88ea-604e-4ca9-9a6b-d7cd2f134a01",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "1a23ed4d-ce91-4d44-adbf-f41463d46c46",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "40cf5b64-2fe3-40aa-94fb-980119a617b1",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "6601a9f0-a430-497d-b7fa-2a193fc0dc93",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "a3097c59-3361-498d-b9ef-dcdb675815cd",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": false,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "79c0281a-eddb-4673-b96c-c1d97f65e532",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": false,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "e19462e9-4146-482e-b18b-03c7a6b18892",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": false,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "1efe8906-c73e-498d-8177-944228fa75b0",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": false,
+    "sessionId": "179e0f90-e8fb-41c1-9db7-b8a274453851"
+  },
+  {
+    "id": "d03346a5-622c-4236-bfae-97a7301e1828",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "4624e0d4-5a8c-4a29-a680-41283327b257",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "616a6ba3-6499-4af5-86d6-6875652a6c77",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "ad4cecf9-1e4b-444a-a243-55d800e70082",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "e70ac0c3-c737-41a5-8daa-0c8f24f82432",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "fc8ea18e-2b99-44e1-a490-d5754fd46459",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "63eee55d-e909-4602-8219-083ad22ea543",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "b3b9e5b2-f927-40a3-92bb-28450536dde4",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "5ec718fc-d0b0-46c2-a8bc-981a68cae6d0"
+  },
+  {
+    "id": "862ffd37-2f5a-4523-801a-9bf146ed8358",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "320fdf41-3a09-4443-b0fa-6da01f942ef5",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "ca509330-3b3a-4e64-989f-f68b9f6ce326",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "eb4c158a-f807-44f4-8efd-d83723c01ba3",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "c99a6c65-2603-4a99-80f3-90288b302382",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "9f480ced-3a09-46e5-9f73-b7fdbc844499",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "4cd786c2-919c-485c-aee8-a8add7f6382f",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "f371d2be-e5b0-4cfb-8835-3b82180a11e2",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "75fc0003-de1b-418f-8e35-19be7903c5eb"
+  },
+  {
+    "id": "70230fd8-5f3a-46cd-9b1b-77a32306cdea",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "2102f750-7785-485a-ad49-4401a42e6ec2",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "1674feb4-e285-4963-aadd-80a0da630a8c",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "c513bf4f-7f52-4d1c-bf7a-e4873e9c4499",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "503d4e4a-61c6-4d08-acd0-18532e6a3216",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "1f068e82-4afd-4d94-9a15-61ef09582450",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "319566d1-cdc0-404b-b760-66b0b2da2d65",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "88a03937-2563-4799-bda3-8795a9221b73",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "9db9d31e-c1df-4cf9-84a5-631419b405b1"
+  },
+  {
+    "id": "f937baa1-ab41-421e-a8f0-c8bbfb6093fd",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "8ea9d2d1-99cb-449c-8ccc-4611cd413509",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "ece54ac7-28bf-4d87-8aea-c9bb657351c7",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "48e331b1-3db4-4437-8e4d-c2cd7efc07fb",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "4cf0edbb-273f-4d33-a403-e6b87697fe78",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "0eac1a24-e1e2-48fe-936b-cb680e7ea7d5",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "4cfebc0d-29a3-4061-a157-1a4abf0b0431",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "825f82ae-d46c-47b1-9dc2-7647e8ddb560",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "ecfe460b-28a3-4ce5-ae59-e6065dbdfb84"
+  },
+  {
+    "id": "b87e78c4-3633-4aa1-b81d-c11b382b5156",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "1b823122-c71c-442e-9f7b-e1b52f165d40",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "45b8654e-9155-4771-bdf1-2c48ff05e8bd",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "cce84580-3a21-4820-bc69-2c880af4497c",
+    "exerciseId": "531448b1-2a30-4147-b9f7-d97fb80d36d8",
+    "exerciseName": "Sentadilla Profunda",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "0693e728-cdc8-4f6d-aec6-412d02226387",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "464406a5-a092-4fdf-ad75-bf786d90c6fc",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "13457c77-4328-4ce0-9dfd-4ad1b84a05d1",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "8ca7e103-cd79-45b8-b24e-a39f6f80ca26",
+    "exerciseId": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "exerciseName": "Press de Banca Plano",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 65,
+    "isCompleted": true,
+    "sessionId": "f5102b02-b23e-4637-be8a-3a4966f03a00"
+  },
+  {
+    "id": "6a3355fb-d5a2-4d60-b23f-305b82e8d57a",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 1,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": true,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "532b1039-3960-47cb-a625-06519c46d416",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 2,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": true,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "a5498aba-6a20-41e6-abb5-01f7050a74f9",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 3,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": false,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "9a36feb0-b0dd-4e8a-ab4a-5c1619e5a1e8",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": true,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "30beb658-37b6-4fd1-a954-fec8a7754e80",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": true,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "17de0341-a773-44e6-b2bc-895a817b410a",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": false,
+    "sessionId": "b4d58177-97f0-47b7-ac3f-caf6762f2892"
+  },
+  {
+    "id": "daa815f7-0015-4d88-89d8-29d049dfcc1c",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 1,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "76a68954-68ad-4a62-b4fc-4e7149c4cb03",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 2,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "9e3aa097-e5c4-4c29-ac65-ff70f491d20a",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 3,
+    "actualReps": 6,
+    "actualWeightKg": 110,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "fd036b2f-8749-4aa3-af6e-0e7d53f12fe0",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "df4f555a-f037-42f8-847c-25befb457802",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "2c6161f6-13d6-47f0-b290-ca2d234a35a5",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 45,
+    "isCompleted": true,
+    "sessionId": "9a6269e9-a18b-4e47-86d2-1f39bac67d57"
+  },
+  {
+    "id": "be5ae2b8-9391-4408-96a4-ba312307b93e",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "89f9592d-bac8-4920-a11f-90d657ee4bc2",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "69c9651b-9d13-44ab-9ab3-ffc2f4b41164",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 80,
+    "isCompleted": true,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "b004b8d1-04d8-48fa-b631-0b1ca0cfac1c",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": false,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "b026894e-5d5e-48aa-9a00-8bc3b66d4ac6",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "c30bddf3-56d9-4e67-b0b1-e93ba2506105",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "26633ead-1503-4b37-898e-72ee1774d057",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": false,
+    "sessionId": "434d1bf4-c421-4cc5-974c-0f7d34968ec3"
+  },
+  {
+    "id": "372a95de-212f-4a74-bd8d-a859ad4b2fd2",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "65ff5ec9-a8ea-4e64-b9d3-52a4431a1192",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "f42fa2b8-5078-424c-8c54-fb781d19f0a8",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "483453d9-ee3f-48ec-8617-722b6b523470",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 4,
+    "actualReps": 10,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "0e26a2bb-df47-4ee7-87a6-e67d54c9e246",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "7a5a59fd-db87-41dc-9a06-f4d973328a6b",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "ee57f5c9-eca1-488d-912e-c31bfa00cf89",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "b6ff0e54-192b-4147-b8e0-0e751742d3cf",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 1,
+    "actualReps": 12,
+    "actualWeightKg": 55,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "fbf93346-ef01-46de-919b-e26f38405110",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 2,
+    "actualReps": 12,
+    "actualWeightKg": 55,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "e2283178-26e3-486c-9132-6f4c9205ec0e",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 3,
+    "actualReps": 12,
+    "actualWeightKg": 55,
+    "isCompleted": true,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "32b0e2e0-e9ec-41c9-baec-b45244c817b1",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 4,
+    "actualReps": 12,
+    "actualWeightKg": 55,
+    "isCompleted": false,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "4c9a4d06-8895-4b64-b50f-3cd0198ce43f",
+    "exerciseId": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "exerciseName": "Peso Muerto Convencional",
+    "setNumber": 5,
+    "actualReps": 12,
+    "actualWeightKg": 55,
+    "isCompleted": false,
+    "sessionId": "8c9a2b0e-6f86-485c-bef3-ec41b3b0abd3"
+  },
+  {
+    "id": "2515fa51-1a22-4bbf-bc6d-d971b0a61055",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "13a92424-36fb-47e0-b3f5-1104a74b0ba4"
+  },
+  {
+    "id": "b1ae8543-83a8-45cc-9956-2bcd3c555bae",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "13a92424-36fb-47e0-b3f5-1104a74b0ba4"
+  },
+  {
+    "id": "0efa2ebf-3fb3-4440-a6f2-772f122785b8",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "13a92424-36fb-47e0-b3f5-1104a74b0ba4"
+  },
+  {
+    "id": "1fb96e8a-c2ab-4a7d-bfb5-14b3e8a9a5da",
+    "exerciseId": "b3ada3f4-4083-4770-9b11-a0cc13cb4dd6",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 75,
+    "isCompleted": true,
+    "sessionId": "13a92424-36fb-47e0-b3f5-1104a74b0ba4"
+  },
+  {
+    "id": "4ad4eeae-50ea-4ea5-8294-d666051bed05",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "416a715a-5ed9-4514-806b-ec810aba24fd",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "8c36339e-527e-4b03-87ae-cd97ae3f1a9e",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "3b64d913-fe38-449d-b663-4cce0030aad3",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "42299a60-863a-4b5f-8059-baa99068a204",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "9782f9c7-cc09-43f6-8ebc-ce733225db36",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "765cec61-ec4b-4e56-b7a8-b7c1789bd56f",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "4d1d2135-c67f-4a3f-85ee-382201ae15d0"
+  },
+  {
+    "id": "19bec579-b4dd-4df4-b8e9-5dfc770e759d",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": false,
+    "sessionId": "b39f2c32-4f89-43f7-a324-d9398021a20f"
+  },
+  {
+    "id": "4ed6c685-0dde-4a48-a5ad-2a50f4f14a57",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "b39f2c32-4f89-43f7-a324-d9398021a20f"
+  },
+  {
+    "id": "a4bea7d3-87e7-4fe1-87e3-032f8b9b3d03",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "b39f2c32-4f89-43f7-a324-d9398021a20f"
+  },
+  {
+    "id": "a1ab56e3-c1ff-40e3-8d5d-2a7cda08ad37",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": false,
+    "sessionId": "b39f2c32-4f89-43f7-a324-d9398021a20f"
+  },
+  {
+    "id": "6b10b555-079e-48f8-9c00-250c02ac3645",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "0e53d1b1-2c1c-400a-a2ff-c69be557fc05",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "2b860075-6c9f-413c-9b66-99d9e15f5eca",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": false,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "b95c402f-5f41-4afc-abf7-c267fb1de35e",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "1602a51f-4e9d-420a-9260-5efc2df689fe",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "569fba7a-ae2d-42f2-8f98-4967e2fe310e",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "2bd01f9c-8d67-4661-93a0-f454f202a62d"
+  },
+  {
+    "id": "769e57f7-8192-4b5e-a99e-47d4fee7d6ef",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "ede6d879-b5ce-40f5-b666-3aada1cd3e93"
+  },
+  {
+    "id": "8cae08a7-4dcf-42ec-ba33-3f9025e3768c",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "ede6d879-b5ce-40f5-b666-3aada1cd3e93"
+  },
+  {
+    "id": "3800b7c2-0bc4-46ce-bd24-6361e67bcde6",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "ede6d879-b5ce-40f5-b666-3aada1cd3e93"
+  },
+  {
+    "id": "ced49b04-016d-47cf-8448-11b7805496cd",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": false,
+    "sessionId": "ede6d879-b5ce-40f5-b666-3aada1cd3e93"
+  },
+  {
+    "id": "2aaeb038-abc8-4ba0-9000-0d748b11fa56",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "cdc1605c-423a-42f7-a527-ed615b98940f"
+  },
+  {
+    "id": "23daf246-129a-464c-872b-34da54406c8e",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "cdc1605c-423a-42f7-a527-ed615b98940f"
+  },
+  {
+    "id": "6d69ed33-2317-4126-a75b-8094ec36295d",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "cdc1605c-423a-42f7-a527-ed615b98940f"
+  },
+  {
+    "id": "b87c99e6-c12e-41bd-872e-e2acab701890",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "cdc1605c-423a-42f7-a527-ed615b98940f"
+  },
+  {
+    "id": "d22cc03f-6f75-4e3e-b3dc-9d932a459c64",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "63f13cfa-2de7-4db8-83ea-5d915d0a3478",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "93100035-1ef8-4d57-9541-f256d6148d10",
+    "exerciseId": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "exerciseName": "Press Militar con Barra",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 70,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "7e467c91-ea09-42a2-9f8e-a7b9bdf9d2a3",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "bf039375-2982-40f7-87bf-2a6a663aa720",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "19b1d16f-bf5e-46c0-a2f4-355a1c6a9f44",
+    "exerciseId": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "exerciseName": "Fondos en Paralelas (Dips)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "d077fd9b-b653-4665-875b-9a546daecaf8"
+  },
+  {
+    "id": "bd268016-1fbe-4156-ad36-763af3417742",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "e16c575f-7d3a-4d12-bec6-3cac9a232e70"
+  },
+  {
+    "id": "ebb00990-1b7f-4f8c-8186-b13707a59623",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "e16c575f-7d3a-4d12-bec6-3cac9a232e70"
+  },
+  {
+    "id": "7b18d77d-422b-460d-ab88-29ccac460865",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "e16c575f-7d3a-4d12-bec6-3cac9a232e70"
+  },
+  {
+    "id": "d92f4ab6-d19a-41c1-8cdc-3df0c1a2d0f8",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "e16c575f-7d3a-4d12-bec6-3cac9a232e70"
+  },
+  {
+    "id": "781384c8-b967-4db3-b94a-ab2d98f1a576",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "8a4aa59b-fc9e-44c1-9ca4-6b7a466d87fd",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "7cf96a2e-d022-4bb3-9ec2-9b3290a69ec8",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "f817dd83-10aa-4af9-a95c-754321d0bfba",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 4,
+    "actualReps": 8,
+    "actualWeightKg": 60,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "49f9fe2d-3704-44d3-888e-602ea8b1967a",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "9d167bfa-12de-4a21-8bf5-d9ccc48bb617",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "be80323f-e6a1-4c6d-a952-d43921760b88",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "f1e889db-de48-4615-9cf0-95f939931a39"
+  },
+  {
+    "id": "4a1a3e50-f233-4009-914c-53b53b9feb3e",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 1,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "29b50d61-9e52-4a23-a88c-1329e80b2cf2"
+  },
+  {
+    "id": "d221b622-d839-4495-bbe8-68bffdbf7fdf",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 2,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": true,
+    "sessionId": "29b50d61-9e52-4a23-a88c-1329e80b2cf2"
+  },
+  {
+    "id": "4b0872bd-69d4-4fab-86f7-9f67a9bb791f",
+    "exerciseId": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "exerciseName": "Dominadas Pronas (Pull-ups)",
+    "setNumber": 3,
+    "actualReps": 10,
+    "actualWeightKg": 50,
+    "isCompleted": false,
+    "sessionId": "29b50d61-9e52-4a23-a88c-1329e80b2cf2"
+  }
+]

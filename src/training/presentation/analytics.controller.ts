@@ -1,13 +1,29 @@
 import { Controller, Get, Param, Query, UseGuards } from '@nestjs/common';
 import { AnalyticsService } from '../application/analytics.service.js';
 import { JwtAuthGuard } from '../../shared/guards/jwt-auth.guard.js';
+import { RolesGuard } from '../../shared/guards/roles.guard.js';
+import { Roles, UserRole } from '../../shared/decorators/roles.decorator.js';
 
-@Controller('api/v1/analytics/athletes/:athleteId')
-@UseGuards(JwtAuthGuard)
+@Controller('api/v1/analytics')
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class AnalyticsController {
   constructor(private readonly analyticsService: AnalyticsService) {}
 
-  @Get('strength-progress')
+  @Get('admin/overview')
+  @Roles(UserRole.ADMIN)
+  async getAdminExecutiveOverview(
+    @Query('period') period?: 'all' | '30d' | '90d' | '365d',
+    @Query('trainerId') trainerId?: string,
+    @Query('adherenceRange') adherenceRange?: 'all' | 'green' | 'yellow' | 'red',
+  ) {
+    return this.analyticsService.getAdminExecutiveOverview({
+      period,
+      trainerId,
+      adherenceRange,
+    });
+  }
+
+  @Get('athletes/:athleteId/strength-progress')
   async getStrengthProgress(
     @Param('athleteId') athleteId: string,
     @Query('exerciseId') exerciseId: string,
@@ -15,7 +31,7 @@ export class AnalyticsController {
     return this.analyticsService.getStrengthProgress(athleteId, exerciseId);
   }
 
-  @Get('adherence')
+  @Get('athletes/:athleteId/adherence')
   async getAdherence(@Param('athleteId') athleteId: string) {
     return this.analyticsService.getAdherence(athleteId);
   }

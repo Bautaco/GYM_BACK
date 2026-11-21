@@ -31,7 +31,8 @@ export class TypeOrmExerciseRepository implements IExerciseRepository {
     orm.grupoMuscularPrincipal = domain.grupoMuscularPrincipal;
     orm.zonasTrabajadas = domain.zonasTrabajadas;
     orm.descripcion = domain.descripcion;
-    orm.videoUrl = domain.videoUrl;
+    // Persist null explicitly so TypeORM clears the column in the DB
+    orm.videoUrl = (domain.videoUrl as any) ?? null;
     return orm;
   }
 

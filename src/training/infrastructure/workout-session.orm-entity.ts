@@ -36,6 +36,9 @@ export class WorkoutSessionOrmEntity {
   @Column({ type: 'int', nullable: true })
   rpe?: number; // RF-13: Calificación de esfuerzo post-sesión (1-10)
 
+  @Column({ type: 'int', nullable: true, default: 60 })
+  durationMinutes?: number;
+
   @OneToMany('LoggedSetOrmEntity', 'session', {
     cascade: true,
     eager: true,

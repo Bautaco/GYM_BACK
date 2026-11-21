@@ -1,0 +1,392 @@
+[
+  {
+    "id": "28d4f0c8-dd5c-4196-ad10-9d323abe85d7",
+    "nombre": "Press de Banca Plano con Barra",
+    "grupoMuscularPrincipal": "Pecho",
+    "zonasTrabajadas": "[\"Pectoral Mayor\",\"Tríceps Braquial\",\"Deltoides Anterior\"]",
+    "descripcion": "Espalda apoyada con leve arco lumbar fisiológico, retracción escapular activa y pies firmes en el suelo. Bajar la barra de forma controlada hasta la parte media del esternón y empujar extendiendo brazos sin perder la posición escapular.",
+    "videoUrl": "https://youtu.be/ZxDku9A3mRg",
+    "createdAt": "2026-10-13T23:18:54.868Z",
+    "updatedAt": "2026-11-20T22:08:54.748Z"
+  },
+  {
+    "id": "f9162763-b49a-4a3f-a171-015c823d7f19",
+    "nombre": "Peso Muerto Convencional",
+    "grupoMuscularPrincipal": "Espalda",
+    "zonasTrabajadas": "[\"Isquiotibiales\",\"Glúteo Mayor\",\"Erectores Espinales\",\"Dorsal Ancho\"]",
+    "descripcion": "Barra pegada a las tibias. Agarre en pronación al ancho de hombros. Empujar el suelo con los pies extendiendo rodillas y caderas al unísono manteniendo la espalda en posición anatómica neutra.",
+    "videoUrl": "https://www.youtube.com/watch?v=wn_z0cW1z4o",
+    "createdAt": "2026-10-13T23:18:54.893Z",
+    "updatedAt": "2026-11-20T22:47:58.205Z"
+  },
+  {
+    "id": "af157a69-7232-462e-a23f-42afe6ba47ae",
+    "nombre": "Press Inclinado con Mancuernas",
+    "grupoMuscularPrincipal": "Pecho",
+    "zonasTrabajadas": "[\"Pectoral Mayor (Porción Clavicular)\",\"Deltoides Anterior\",\"Tríceps Braquial\"]",
+    "descripcion": "Ajustar el banco a 30°-45°. Bajar las mancuernas al costado del pecho alto manteniendo codos a unos 45° del torso. Empujar hacia arriba juntando ligeramente las mancuernas al final sin bloquear codos bruscamente.",
+    "videoUrl": "https://www.youtube.com/shorts/-zbesyTNztQ",
+    "createdAt": "2026-10-17T19:40:10.969Z",
+    "updatedAt": "2026-10-17T19:40:10.969Z"
+  },
+  {
+    "id": "78a4423c-69de-4452-9889-68d32518be09",
+    "nombre": "Cruce de Poleas / Flyes en Polea",
+    "grupoMuscularPrincipal": "Pecho",
+    "zonasTrabajadas": "[\"Pectoral Mayor\",\"Pectoral Menor\"]",
+    "descripcion": "Mantener una ligera flexión de codos constante durante todo el recorrido. Dar un paso al frente para tensionar la polea, juntar las manos al frente apretando el pecho al final del movimiento y abrir de manera controlada.",
+    "videoUrl": "https://www.youtube.com/shorts/I-Ue34qLxc4",
+    "createdAt": "2026-10-17T19:55:09.906Z",
+    "updatedAt": "2026-10-17T19:55:09.906Z"
+  },
+  {
+    "id": "350855eb-db75-410e-a1f8-ababf961c7e3",
+    "nombre": "Fondos en Paralelas (Dips para Pecho)",
+    "grupoMuscularPrincipal": "Pecho",
+    "zonasTrabajadas": "[\"Pectoral Mayor (Porción Inferior)\",\"Tríceps Braquial\",\"Deltoides Anterior\"]",
+    "descripcion": "Inclinarse ligeramente hacia adelante para dar mayor énfasis al pecho. Bajar hasta que los hombros queden alineados con los codos y empujar hacia arriba hasta extender los brazos.",
+    "videoUrl": "https://www.youtube.com/shorts/YMf0VNtMijw",
+    "createdAt": "2026-10-17T20:40:16.878Z",
+    "updatedAt": "2026-10-17T20:40:16.878Z"
+  },
+  {
+    "id": "3cc88512-3941-40f3-8be8-d8a04ca37362",
+    "nombre": "Fondos en Paralelas (Dips)",
+    "grupoMuscularPrincipal": "Brazos",
+    "zonasTrabajadas": "[\"Tríceps Braquial\",\"Pectoral Menor\",\"Deltoides Anterior\"]",
+    "descripcion": "Sostenerse en barras paralelas. Flexionar codos hasta 90 grados con el torso ligeramente inclinado y empujar con fuerza hasta la extensión completa.",
+    "videoUrl": "https://www.youtube.com/watch?v=sM6XUdt1rm4",
+    "createdAt": "2026-10-13T23:18:54.927Z",
+    "updatedAt": "2026-10-14T00:06:28.516Z"
+  },
+  {
+    "id": "f4d99b32-7dfd-459e-9932-d109455f602d",
+    "nombre": "Remo Gironda (Polea Baja)",
+    "grupoMuscularPrincipal": "Espalda",
+    "zonasTrabajadas": "[\"Romboides\",\"Trapecio Medio\",\"Dorsal Ancho\",\"Erectores Espinales\"]",
+    "descripcion": "Espalda erguida y rodillas con leve flexión. Traccionar el agarre hacia el abdomen manteniendo codos pegados al cuerpo y sacando pecho en la fase de máxima contracción.",
+    "videoUrl": "https://www.youtube.com/shorts/I3Wi6GK0QMk",
+    "createdAt": "2026-10-17T22:05:02.046Z",
+    "updatedAt": "2026-10-17T22:05:02.046Z"
+  },
+  {
+    "id": "52e4e02e-a17f-4e59-98d8-b8726929937c",
+    "nombre": "Face Pull en Polea",
+    "grupoMuscularPrincipal": "Hombros",
+    "zonasTrabajadas": "[\"Deltoides Posterior\",\"Romboides\",\"Manguito Rotador\"]",
+    "descripcion": "Para Face Pull, traccionar la cuerda hacia la altura de la cara/frente, separando las manos y rotando los hombros hacia afuera al final del recorrido.",
+    "videoUrl": "https://www.youtube.com/shorts/Ue0xtLb_kvM",
+    "createdAt": "2026-10-17T22:19:35.065Z",
+    "updatedAt": "2026-10-17T22:19:35.065Z"
+  },
+  {
+    "id": "783224e8-79f2-4539-8e2b-b6496de30e75",
+    "nombre": "Curl de Bíceps con Barra EZ / Mancuernas",
+    "grupoMuscularPrincipal": "Brazos",
+    "zonasTrabajadas": "[\"Bíceps Braquial\",\"Braquial Anterior\"]",
+    "descripcion": "Codos fijos a los costados del cuerpo. Flexionar los antebrazos hacia arriba sin mover el torso ni adelantar los codos en exceso. Bajar de manera fluida y controlada.",
+    "videoUrl": "https://www.youtube.com/shorts/l-BPupny6cM",
+    "createdAt": "2026-10-17T22:40:01.630Z",
+    "updatedAt": "2026-10-17T22:40:01.630Z"
+  },
+  {
+    "id": "0e3cf60d-3348-46fd-a37c-490b156b4a04",
+    "nombre": "Press Militar con Mancuernas",
+    "grupoMuscularPrincipal": "Hombros",
+    "zonasTrabajadas": "[\"Deltoides Anterior\",\"Deltoides Lateral\",\"Core\",\"Tríceps Braquial\"]",
+    "descripcion": "Desde la altura de las clavículas, empujar la barra/mancuernas de manera vertical por encima de la cabeza. Activar glúteos y abdomen para no hiperextender la zona lumbar.",
+    "videoUrl": "https://www.youtube.com/shorts/DdITN8U-kFI",
+    "createdAt": "2026-10-13T23:18:54.904Z",
+    "updatedAt": "2026-10-17T22:11:52.062Z"
+  },
+  {
+    "id": "083ccd8d-0b79-4a11-9180-2d9591a94136",
+    "nombre": "Curl Martillo con Mancuernas",
+    "grupoMuscularPrincipal": "Brazos",
+    "zonasTrabajadas": "[\"Braquiorradial\",\"Braquial Anterior\",\"Bíceps Braquial\"]",
+    "descripcion": "Agarre neutro (palmas enfrentadas). Flexionar los brazos manteniendo las muñecas firmes, ideal para ganar grosor en el antebrazo y brazo.",
+    "videoUrl": "https://www.youtube.com/shorts/PzmSQcFSNPI",
+    "createdAt": "2026-10-17T22:42:43.824Z",
+    "updatedAt": "2026-10-17T22:42:43.824Z"
+  },
+  {
+    "id": "f6d571ee-7710-459c-ad99-2652a2491c13",
+    "nombre": "Press de Banca Plano",
+    "grupoMuscularPrincipal": "Pecho",
+    "zonasTrabajadas": "[\"Pectoral Mayor\",\"Tríceps Braquial\",\"Deltoides Anterior\"]",
+    "descripcion": "Tumbado en banco plano con 5 puntos de apoyo (pies, glúteo, escápulas y cabeza). Retracción escapular, descenso controlado de la barra al tercio medio del esternón y empuje concéntrico vertical.",
+    "videoUrl": "https://www.youtube.com/shorts/UgmYbrytasw",
+    "createdAt": "2026-10-17T21:07:27.093Z",
+    "updatedAt": "2026-10-17T21:07:27.093Z"
+  },
+  {
+    "id": "4397a259-0e28-481f-89ab-5a4ab14f8714",
+    "nombre": "Dominadas Pronas (Pull-ups)",
+    "grupoMuscularPrincipal": "Espalda",
+    "zonasTrabajadas": "[\"Dorsal Ancho\",\"Trapecio (Inferior/Medio)\",\"Romboides\",\"Bíceps Braquial\"]",
+    "descripcion": "Agarre en pronación ligeramente más ancho que los hombros. Iniciar el movimiento retrayendo las escápulas y llevando el pecho hacia la barra. Bajar de forma controlada hasta extender los brazos por completo.",
+    "videoUrl": "https://www.youtube.com/watch?v=sPej2dr2J5s",
+    "createdAt": "2026-10-14T02:44:58.179Z",
+    "updatedAt": "2026-10-17T21:07:27.187Z"
+  },
+  {
+    "id": "ac5b0f41-d73c-4d3d-916a-1d0053fc46f3",
+    "nombre": "Jalón al Pecho en Polea",
+    "grupoMuscularPrincipal": "Espalda",
+    "zonasTrabajadas": "[\"Dorsal Ancho\",\"Redondo Mayor\",\"Bíceps Braquial\"]",
+    "descripcion": "Sentarse firmemente asegurando los muslos bajo los rodillos. Inclinarse levemente hacia atrás y traccionar la barra hacia la parte alta del pecho guiando con los codos hacia abajo y atrás.",
+    "videoUrl": "https://www.youtube.com/shorts/TcYwpzaRS1I",
+    "createdAt": "2026-10-17T21:43:02.311Z",
+    "updatedAt": "2026-10-17T21:43:02.311Z"
+  },
+  {
+    "id": "0108d8b1-a26a-4e50-bf82-fe638031bd1e",
+    "nombre": "Remo con Barra T o Barra Libre",
+    "grupoMuscularPrincipal": "Espalda",
+    "zonasTrabajadas": "[\"Dorsal Ancho\",\"Romboides\",\"Trapecio Medio\",\"Erectores Espinales\"]",
+    "descripcion": "Inclinación del torso a 45° manteniendo la columna neutra y rodillas flexionadas. Llevar la barra hacia el ombligo o la parte baja del abdomen apretando la espalda arriba.",
+    "videoUrl": "https://www.youtube.com/shorts/pmJKV0pfI3M",
+    "createdAt": "2026-10-17T21:59:06.458Z",
+    "updatedAt": "2026-10-17T22:01:38.598Z"
+  },
+  {
+    "id": "41a4b7cc-0b50-4126-b940-eae25d003b50",
+    "nombre": "Elevaciones Laterales con Mancuernas",
+    "grupoMuscularPrincipal": "Hombros",
+    "zonasTrabajadas": "[\"Deltoides Lateral\"]",
+    "descripcion": "Elevar los brazos hacia los costados en el plano escapular (ligeramente hacia adelante) hasta la altura de los hombros. Evitar balanceos con el cuerpo y controlar la bajada.",
+    "videoUrl": "https://www.youtube.com/shorts/Vh_Kjw3O-DQ",
+    "createdAt": "2026-10-17T22:13:01.855Z",
+    "updatedAt": "2026-10-17T22:14:40.565Z"
+  },
+  {
+    "id": "9aa2109b-c433-446d-90b4-d23a19620d3e",
+    "nombre": "Elevaciones Laterales con Polea",
+    "grupoMuscularPrincipal": "Hombros",
+    "zonasTrabajadas": "[\"Deltoides Lateral\"]",
+    "descripcion": "Elevar los brazos hacia los costados en el plano escapular (ligeramente hacia adelante) hasta la altura de los hombros. Evitar balanceos con el cuerpo y controlar la bajada.",
+    "videoUrl": "https://www.youtube.com/shorts/SaoW-iSUxfk",
+    "createdAt": "2026-10-17T22:16:37.544Z",
+    "updatedAt": "2026-10-17T22:16:37.544Z"
+  },
+  {
+    "id": "9596f153-4b63-44ac-92cc-9961a4104690",
+    "nombre": "Extensión de Tríceps en Polea Alta con Cuerda",
+    "grupoMuscularPrincipal": "Brazos",
+    "zonasTrabajadas": "[\"Tríceps Braquial (Cabeza Lateral)\",\"Tríceps Braquial (Cabeza Media)\"]",
+    "descripcion": "Codos pegados a los costados. Empujar la cuerda hacia abajo extendiendo los brazos por completo y separando las puntas de la cuerda al final.",
+    "videoUrl": "https://www.youtube.com/shorts/qdRDkVqVeOY",
+    "createdAt": "2026-10-17T22:44:45.894Z",
+    "updatedAt": "2026-10-17T22:44:45.894Z"
+  },
+  {
+    "id": "056c459e-dc81-4cbb-9f07-74b587fa6222",
+    "nombre": "Press Francés con Barra EZ",
+    "grupoMuscularPrincipal": "Brazos",
+    "zonasTrabajadas": "[\"Tríceps Braquial (Cabeza Larga)\"]",
+    "descripcion": "Acostado en banco plano, flexionar únicamente los codos llevando la barra hacia la frente/coronilla de forma segura y extender de nuevo a la posición inicial.",
+    "videoUrl": "https://www.youtube.com/shorts/L3bEz-vcdGU",
+    "createdAt": "2026-10-17T22:51:51.554Z",
+    "updatedAt": "2026-10-17T22:51:51.554Z"
+  },
+  {
+    "id": "1a66acaa-1e55-4169-bdee-950317e6215b",
+    "nombre": "Sentadilla Trasera con Barra (Back Squat)",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Cuádriceps\",\"Glúteo Mayor\",\"Aductores\",\"Erectores Espinales\"]",
+    "descripcion": "Colocar la barra sobre el trapecio. Descender rompiendo la cadera hacia atrás y abajo manteniendo rodillas alineadas con la punta de los pies. Mantener el torso firme y subir empujando con toda la planta del pie.",
+    "videoUrl": "https://www.youtube.com/shorts/dW3zj79xfrc",
+    "createdAt": "2026-10-17T22:54:19.808Z",
+    "updatedAt": "2026-10-17T22:54:19.808Z"
+  },
+  {
+    "id": "0105a89f-68a4-4739-ad21-39ae7b797c56",
+    "nombre": "Prensa 45° (Leg Press)",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Cuádriceps\",\"Glúteo Mayor\",\"Isquiotibiales\"]",
+    "descripcion": "Apoyar la espalda y cadera firmes contra el respaldo. Flexionar rodillas hacia el pecho manteniendo la planta de los pies firme en la plataforma y extender sin bloquear las rodillas al final.",
+    "videoUrl": "https://www.youtube.com/shorts/4k8GkDBTrXE",
+    "createdAt": "2026-10-17T22:56:03.793Z",
+    "updatedAt": "2026-10-17T22:56:03.793Z"
+  },
+  {
+    "id": "eddc756a-54fb-4f13-816c-35aa28da0266",
+    "nombre": "Extensión de Cuádriceps en Máquina",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Cuádriceps\"]",
+    "descripcion": "Ajustar el rodillo sobre los tobillos. Extender las piernas de forma fluida apretando el cuádriceps arriba un segundo y descendiendo de manera controlada.",
+    "videoUrl": "https://www.youtube.com/shorts/N-euKPQgO84",
+    "createdAt": "2026-10-17T22:57:29.390Z",
+    "updatedAt": "2026-10-17T22:57:29.390Z"
+  },
+  {
+    "id": "27be7347-67b6-4fa4-bf04-bf6b4dd907f8",
+    "nombre": "Peso Muerto Rumano (RDL)",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Glúteo Mayor\",\"Isquiotibiales\",\"Erectores Espinales\"]",
+    "descripcion": "Mantener la barra pegada a los muslos, llevar la cadera hacia atrás con una ligera flexión de rodillas fija. Bajar hasta sentir la tensión en la parte posterior del muslo manteniendo la espalda totalmente recta.",
+    "videoUrl": "https://www.youtube.com/shorts/EiyvxSP-keA",
+    "createdAt": "2026-10-17T22:59:41.418Z",
+    "updatedAt": "2026-10-17T22:59:41.418Z"
+  },
+  {
+    "id": "63dacb33-324c-4ae9-b754-7626af164db2",
+    "nombre": "Curl Femoral Tumbado",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Isquiotibiales\"]",
+    "descripcion": "Ajustar la máquina para que el eje coincida con la rodilla. Flexionar las piernas llevando el rodillo hacia el glúteo y controlar el retorno sin hiperextender.",
+    "videoUrl": "https://www.youtube.com/shorts/ENDnSAkatcw",
+    "createdAt": "2026-10-17T23:02:46.359Z",
+    "updatedAt": "2026-10-17T23:02:46.359Z"
+  },
+  {
+    "id": "c523e75f-5049-43d9-8c61-ce1801c1e330",
+    "nombre": "Zancadas / Estocadas (Lunges)",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Cuádriceps\",\"Glúteo Mayor\",\"Isquiotibiales\",\"Aductores\"]",
+    "descripcion": "Dar un paso largo hacia adelante o atrás bajando la rodilla trasera hacia el suelo en un ángulo de 90°. Mantener el torso erguido y empujar con la pierna delantera para volver.",
+    "videoUrl": "https://www.youtube.com/shorts/8h4nhwC-tHU",
+    "createdAt": "2026-10-17T23:05:15.458Z",
+    "updatedAt": "2026-10-17T23:05:15.458Z"
+  },
+  {
+    "id": "d9225ac4-5b24-4bc6-87f7-92bad04dc3ba",
+    "nombre": "Elevación de Talones en Máquina (Gemelos de Pie / Sentado)",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Gastrocnemio\",\"Sóleo\"]",
+    "descripcion": "Apoyar el metatarso en el borde del escalón. Bajar los talones para lograr un estiramiento completo y elevar empujando con la punta de los pies en máxima contracción.",
+    "videoUrl": "https://www.youtube.com/shorts/HfKfOT9R9D0",
+    "createdAt": "2026-10-17T23:08:29.730Z",
+    "updatedAt": "2026-10-17T23:08:29.730Z"
+  },
+  {
+    "id": "39ae0b69-6959-4d7a-951a-298567a48495",
+    "nombre": "Hip Thrust con Barra",
+    "grupoMuscularPrincipal": "Glúteos",
+    "zonasTrabajadas": "[\"Glúteo Mayor\",\"Glúteo Medio\",\"Isquiotibiales\",\"Cuádriceps\"]",
+    "descripcion": "Apoyar la escápula en un banco, colocar la barra sobre la pelvis. Empujar con los talones elevando la cadera hasta alinearla con los hombros y rodillas, apretando fuerte los glúteos arriba y manteniendo la mirada al frente.",
+    "videoUrl": "https://www.youtube.com/shorts/NjnHOVJA690",
+    "createdAt": "2026-10-17T23:11:04.184Z",
+    "updatedAt": "2026-10-17T23:11:04.184Z"
+  },
+  {
+    "id": "143705a5-12e3-4efa-91d3-8355637e4ab3",
+    "nombre": "Patada de Glúteo en Polea o Máquina",
+    "grupoMuscularPrincipal": "Glúteos",
+    "zonasTrabajadas": "[\"Glúteo Mayor\",\"Glúteo Medio\"]",
+    "descripcion": "Ajustar la tobillera en la polea baja. Llevar la pierna extendida hacia atrás empujando con el talón de forma fluida sin arquear en exceso la zona lumbar.",
+    "videoUrl": "https://www.youtube.com/shorts/-YgMavu-_XQ",
+    "createdAt": "2026-10-17T23:12:39.795Z",
+    "updatedAt": "2026-10-17T23:12:39.795Z"
+  },
+  {
+    "id": "b8f39395-319f-49da-b53e-aa1b2da08742",
+    "nombre": "Abducciones de Cadena en Máquina / Polea",
+    "grupoMuscularPrincipal": "Glúteos",
+    "zonasTrabajadas": "[\"Glúteo Medio\",\"Glúteo Menor\"]",
+    "descripcion": "Sentado o de pie, empujar hacia afuera separando las piernas. Ideal para el desarrollo del lateral de la cadera.",
+    "videoUrl": "https://www.youtube.com/shorts/zXRSm0_icfc",
+    "createdAt": "2026-10-17T23:13:43.028Z",
+    "updatedAt": "2026-10-17T23:13:43.028Z"
+  },
+  {
+    "id": "1acaf7c1-ce85-4102-8b69-c0dbce8dfc11",
+    "nombre": "Plancha Abdominal Estática (Plank)",
+    "grupoMuscularPrincipal": "Core",
+    "zonasTrabajadas": "[\"Transverso del Abdomen\",\"Recto Abdominal\",\"Oblicuos\",\"Erectores Espinales\"]",
+    "descripcion": "Apoyo sobre antebrazos y puntas de pie. Mantener el cuerpo totalmente alineado como una tabla, retroversión pélvica activa y abdomen apretado sin dejar caer la cadera",
+    "videoUrl": "https://www.youtube.com/shorts/3AM7L2k7BEw",
+    "createdAt": "2026-10-17T23:15:37.581Z",
+    "updatedAt": "2026-10-17T23:15:37.581Z"
+  },
+  {
+    "id": "31d04ef9-7b9f-40da-9d35-6f1b8c03474b",
+    "nombre": "Elevación de Piernas Colgado",
+    "grupoMuscularPrincipal": "Core",
+    "zonasTrabajadas": "[\"Recto Abdominal\",\"Oblicuos\",\"Flexores de Cadera\"]",
+    "descripcion": "Colgado de la barra de dominadas, elevar las piernas o rodillas hacia el pecho de forma controlada sin usar el impulso ni balancearse.",
+    "videoUrl": "https://www.youtube.com/shorts/98oNxE56i3g",
+    "createdAt": "2026-10-17T23:17:45.616Z",
+    "updatedAt": "2026-10-17T23:17:45.616Z"
+  },
+  {
+    "id": "274c2fed-6e55-45b0-b2d6-8316187e01fe",
+    "nombre": "Rueda Abdominal (Ab Wheel Rollout)",
+    "grupoMuscularPrincipal": "Core",
+    "zonasTrabajadas": "[\"Recto Abdominal\",\"Transverso del Abdomen\",\"Dorsal Ancho\"]",
+    "descripcion": "Desde posición de hinojos, rodar la rueda hacia adelante extendiendo el cuerpo progresivamente mientras el abdomen se mantiene contraído. Regresar usando la fuerza central.",
+    "videoUrl": "https://www.youtube.com/shorts/MinlHnG7j4k",
+    "createdAt": "2026-10-17T23:21:16.240Z",
+    "updatedAt": "2026-10-17T23:21:16.240Z"
+  },
+  {
+    "id": "66f393de-8bd7-453f-92be-ba29c742ca1c",
+    "nombre": "Crunch Abdominal en Polea Alta",
+    "grupoMuscularPrincipal": "Core",
+    "zonasTrabajadas": "[\"Recto Abdominal\"]",
+    "descripcion": "Arrodillado frente a la polea alta con la cuerda colocada al lado de la cabeza. Flexionar el tronco hacia las rodillas apretando la faja abdominal de manera aislada.",
+    "videoUrl": "https://www.youtube.com/shorts/XuQWMR4QKF0",
+    "createdAt": "2026-10-17T23:22:13.153Z",
+    "updatedAt": "2026-10-17T23:22:13.153Z"
+  },
+  {
+    "id": "a70f7bca-69fc-472d-b84a-d47ef675991a",
+    "nombre": "Burpees",
+    "grupoMuscularPrincipal": "Cardio / Full Body",
+    "zonasTrabajadas": "[\"Cuádriceps\",\"Pectoral Mayor\",\"Deltoides Anterior\",\"Core\"]",
+    "descripcion": "Desde posición de pie, bajar a posición de flexión, tocar el pecho con el suelo, volver explosivamente con los pies hacia adelante y realizar un salto vertical con aplauso arriba.",
+    "videoUrl": "https://www.youtube.com/shorts/Iv7MXi_1Trc",
+    "createdAt": "2026-10-17T23:41:08.556Z",
+    "updatedAt": "2026-10-17T23:41:08.556Z"
+  },
+  {
+    "id": "cd7e4c02-4a0c-4832-b12e-56381ad4e513",
+    "nombre": "Kettlebell Swing",
+    "grupoMuscularPrincipal": "Cardio / Full Body",
+    "zonasTrabajadas": "[\"Glúteo Mayor\",\"Isquiotibiales\",\"Erectores Espinales\",\"Deltoides\"]",
+    "descripcion": "Movimiento explosivo dominado por la bisagra de cadera. Pasar la pesa entre las piernas hacia atrás y proyectar la cadera con potencia para balancearla a la altura de los hombros.",
+    "videoUrl": "https://www.youtube.com/shorts/P-dbz0nxupg",
+    "createdAt": "2026-10-17T23:42:49.223Z",
+    "updatedAt": "2026-10-17T23:42:49.223Z"
+  },
+  {
+    "id": "9c3394cd-ed7c-4cbe-b040-b52945b60e23",
+    "nombre": "Remo Ergómetro (Rowing Machine)",
+    "grupoMuscularPrincipal": "Cardio / Full Body",
+    "zonasTrabajadas": "[\"Dorsal Ancho\",\"Cuádriceps\",\"Isquiotibiales\",\"Bíceps Braquial\",\"Core\"]",
+    "descripcion": "Iniciar el empuje con las piernas, luego inclinar levemente el torso hacia atrás y finalmente traccionar con los brazos hasta tocar las costillas inferiores.",
+    "videoUrl": "https://www.youtube.com/shorts/ssTIVEpsMRY",
+    "createdAt": "2026-10-17T23:44:24.065Z",
+    "updatedAt": "2026-10-17T23:44:24.065Z"
+  },
+  {
+    "id": "232491fb-f91f-4ec2-b1bc-56e7e273d23a",
+    "nombre": "Slam Ball (Lanzamiento de Balón Medicinal)",
+    "grupoMuscularPrincipal": "Cardio / Full Body",
+    "zonasTrabajadas": "[\"Core\",\"Deltoides\",\"Dorsal Ancho\",\"Cuádriceps\"]",
+    "descripcion": "Levantar el balón por encima de la cabeza extendiendo todo el cuerpo y lanzarlo con máxima potencia contra el suelo contrayendo todo el core.",
+    "videoUrl": "https://www.youtube.com/shorts/cgKqNn90MEo",
+    "createdAt": "2026-10-17T23:46:30.456Z",
+    "updatedAt": "2026-10-17T23:46:30.456Z"
+  },
+  {
+    "id": "c8bfcad1-53b0-47bd-89a0-98a729967603",
+    "nombre": "Press Militar con Barra",
+    "grupoMuscularPrincipal": "Hombros",
+    "zonasTrabajadas": "[\"Deltoides Anterior\",\"Deltoides Lateral\",\"Tríceps\",\"Core\"]",
+    "descripcion": "De pie con abdomen y glúteos contraídos. Barra apoyada sobre clavículas, empujar verticalmente por delante del rostro hasta bloquear codos sobre la cabeza.",
+    "videoUrl": "https://www.youtube.com/watch?v=QAuyfgywb-k",
+    "createdAt": "2026-10-19T19:22:21.570Z",
+    "updatedAt": "2026-11-20T22:47:58.218Z"
+  },
+  {
+    "id": "787ae260-661c-4378-b93d-114fb33f5779",
+    "nombre": "Sentadilla Profunda",
+    "grupoMuscularPrincipal": "Piernas",
+    "zonasTrabajadas": "[\"Cuádriceps\",\"Glúteo Mayor\",\"Core\",\"Aductores\"]",
+    "descripcion": "Pies al ancho de hombros con puntas ligeramente hacia afuera. Flexión simultánea de cadera y rodillas descendiendo por debajo del paralelo, manteniendo columna neutra y pecho erguido.",
+    "videoUrl": "https://www.youtube.com/watch?v=vmNPOjaGrVE",
+    "createdAt": "2026-10-19T19:22:21.159Z",
+    "updatedAt": "2026-11-20T22:47:58.148Z"
+  }
+]

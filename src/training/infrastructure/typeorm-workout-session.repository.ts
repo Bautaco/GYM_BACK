@@ -44,6 +44,7 @@ export class TypeOrmWorkoutSessionRepository
       orm.notes,
       orm.rpe,
       orm.createdAt,
+      orm.durationMinutes ?? 60,
     );
   }
 
@@ -60,6 +61,7 @@ export class TypeOrmWorkoutSessionRepository
     orm.completed = domain.completed;
     orm.notes = domain.notes;
     orm.rpe = domain.rpe;
+    orm.durationMinutes = domain.durationMinutes ?? 60;
 
     orm.sets = (domain.sets || []).map((s) => {
       const setOrm = new LoggedSetOrmEntity();
@@ -85,6 +87,13 @@ export class TypeOrmWorkoutSessionRepository
   async findByAthleteId(athleteId: string): Promise<WorkoutSession[]> {
     const list = await this.sessionRepo.find({
       where: { athleteId },
+      order: { date: 'DESC' },
+    });
+    return list.map((s) => this.toDomain(s));
+  }
+
+  async findAll(): Promise<WorkoutSession[]> {
+    const list = await this.sessionRepo.find({
       order: { date: 'DESC' },
     });
     return list.map((s) => this.toDomain(s));

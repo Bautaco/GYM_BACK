@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ef865512-97b0-4df3-9d3d-fe5823a58ae0",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 77.2,
+    "notes": "Pesaje semana 4",
+    "recordedAt": "2026-09-22T23:18:55.030Z"
+  },
+  {
+    "id": "e0846e53-5b16-421f-b18d-bec786bad31a",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 76.5,
+    "notes": "Pesaje semana 3",
+    "recordedAt": "2026-09-29T23:18:55.044Z"
+  },
+  {
+    "id": "bfceb813-9deb-45f7-8ed0-878863bbbdb4",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 75.9,
+    "notes": "Pesaje semana 2",
+    "recordedAt": "2026-10-06T23:18:55.055Z"
+  },
+  {
+    "id": "61ffee59-ec24-4b8c-95fa-ab77ad0f62e4",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 75.5,
+    "notes": "Pesaje semana 1",
+    "recordedAt": "2026-10-13T23:18:55.066Z"
+  },
+  {
+    "id": "8e8bcc6e-0969-400c-887c-26458fd8b999",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 90,
+    "notes": "Pesaje de Tercera Semana",
+    "recordedAt": "2026-10-14T00:15:33.668Z"
+  },
+  {
+    "id": "15474799-8f05-412e-9352-75ef635574cf",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 92,
+    "notes": null,
+    "recordedAt": "2026-10-15T00:06:41.454Z"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 78.4,
+    "notes": "Pesaje semana 1 Noviembre",
+    "recordedAt": "2026-11-04T13:00:00.000Z"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "athleteId": "c389507d-0b39-4efc-8fc3-dff49166acdf",
+    "weightKg": 78.9,
+    "notes": "Pesaje semana 3 Noviembre",
+    "recordedAt": "2026-11-18T13:00:00.000Z"
+  }
+]

@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { AppController } from './app.controller.js';
+import { AppService } from './app.service.js';
 import { UsersModule } from './users/users.module.js';
 import { TrainingModule } from './training/training.module.js';
 import { UserOrmEntity } from './users/infrastructure/user.orm-entity.js';
@@ -38,7 +40,7 @@ const allEntities = [
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService): TypeOrmModuleOptions => {
-        const dbType = config.get<string>('DATABASE_TYPE', 'sqlite');
+        const dbType = config.get<string>('DATABASE_TYPE', 'better-sqlite3');
 
         if (dbType === 'postgres') {
           return {
@@ -53,17 +55,19 @@ const allEntities = [
           };
         }
 
-        // SQLite local por defecto con cero fricción
+        // SQLite local por defecto con cero fricción (better-sqlite3)
         return {
-          type: 'sqlite',
+          type: 'better-sqlite3',
           database: config.get<string>('DB_DATABASE', 'gym.sqlite'),
           entities: allEntities,
           synchronize: true,
-        } as any;
+        };
       },
     }),
     UsersModule,
     TrainingModule,
   ],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

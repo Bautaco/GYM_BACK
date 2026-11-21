@@ -3,6 +3,7 @@ import { WorkoutSession } from './workout-session.entity.js';
 export interface IWorkoutSessionRepository {
   save(session: WorkoutSession): Promise<WorkoutSession>;
   findByAthleteId(athleteId: string): Promise<WorkoutSession[]>;
+  findAll(): Promise<WorkoutSession[]>;
   findByAthleteAndDate(athleteId: string, date: Date): Promise<WorkoutSession | null>;
   countCompletedByAthleteInDateRange(
     athleteId: string,

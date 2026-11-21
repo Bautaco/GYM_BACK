@@ -4,6 +4,8 @@ export interface ITrainingPlanRepository {
   findActiveByAthleteId(athleteId: string): Promise<TrainingPlan | null>;
   findAllByAthleteId(athleteId: string): Promise<TrainingPlan[]>;
   findById(id: string): Promise<TrainingPlan | null>;
+  findAll(): Promise<TrainingPlan[]>;
+  findAllActive(): Promise<TrainingPlan[]>;
   save(plan: TrainingPlan): Promise<TrainingPlan>;
   deactivatePreviousPlans(athleteId: string): Promise<void>;
 }

@@ -5,7 +5,7 @@ export class Exercise {
     public grupoMuscularPrincipal: string,
     public zonasTrabajadas: string[],
     public descripcion: string,
-    public videoUrl?: string,
+    public videoUrl?: string | null,
     public createdAt?: Date,
   ) {}
 

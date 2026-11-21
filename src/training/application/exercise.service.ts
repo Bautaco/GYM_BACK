@@ -200,7 +200,14 @@ export class ExerciseService {
       found.zonasTrabajadas = zones;
     }
     if (dto.descripcion !== undefined) found.descripcion = dto.descripcion.trim();
-    if (dto.videoUrl !== undefined) found.videoUrl = dto.videoUrl?.trim() || undefined;
+    if ('videoUrl' in dto) {
+      // null explícito o string vacío = el usuario borró el video → persiste NULL en la DB
+      if (dto.videoUrl === null || dto.videoUrl === '') {
+        (found as any).videoUrl = null;
+      } else if (dto.videoUrl !== undefined) {
+        found.videoUrl = dto.videoUrl.trim() || undefined;
+      }
+    }
 
     // Garantizar persistencia de cualquier valor nuevo ingresado
     await this.ensureMuscleGroupAndZones(group, zones || []);

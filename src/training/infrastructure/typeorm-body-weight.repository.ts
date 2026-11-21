@@ -45,4 +45,11 @@ export class TypeOrmBodyWeightRepository implements IBodyWeightRepository {
     });
     return list.map((r) => this.toDomain(r));
   }
+
+  async findAll(): Promise<BodyWeightRecord[]> {
+    const list = await this.repo.find({
+      order: { recordedAt: 'DESC' },
+    });
+    return list.map((r) => this.toDomain(r));
+  }
 }

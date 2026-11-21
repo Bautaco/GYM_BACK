@@ -116,6 +116,21 @@ export class TypeOrmTrainingPlanRepository implements ITrainingPlanRepository {
     return found ? this.toDomain(found) : null;
   }
 
+  async findAll(): Promise<TrainingPlan[]> {
+    const list = await this.repo.find({
+      order: { createdAt: 'DESC' },
+    });
+    return list.map((p) => this.toDomain(p));
+  }
+
+  async findAllActive(): Promise<TrainingPlan[]> {
+    const list = await this.repo.find({
+      where: { isActive: true },
+      order: { createdAt: 'DESC' },
+    });
+    return list.map((p) => this.toDomain(p));
+  }
+
   async save(plan: TrainingPlan): Promise<TrainingPlan> {
     if (plan.id) {
       const routineRepo = this.repo.manager.getRepository(RoutineOrmEntity);

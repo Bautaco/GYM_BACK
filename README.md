@@ -1,46 +1,56 @@
-# 🏋️ Backend - Sistema de Gestión de Entrenamiento Físico y Seguimiento
+# 🏋️ Backend - Sistema de Gestión de Entrenamiento Físico y Seguimiento (APEX FIT)
 
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![TypeORM](https://img.shields.io/badge/TypeORM-FE0803?style=for-the-badge&logo=typeorm&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
 
-Servicio Backend modular, desacoplado y de nivel empresarial diseñado para la **prescripción, gestión y auditoría del entrenamiento físico y la progresión biomecánica** entre entrenadores profesionales, atletas y administradores del sistema. Construido bajo principios de **Domain-Driven Design (DDD)** y Arquitectura en Capas Limpias con **NestJS**, **TypeORM**, **Vitest** y **TypeScript**.
+Servicio Backend modular, desacoplado y de nivel empresarial diseñado para la **prescripción, gestión y auditoría del entrenamiento físico, métricas institucionales de alto rendimiento y progresión biomecánica** entre directores deportivos (`ADMIN`), entrenadores profesionales (`ENTRENADOR`) y atletas (`ATLETA`). Construido bajo principios de **Domain-Driven Design (DDD)** y Arquitectura Limpia en Capas con **NestJS**, **TypeORM**, **PostgreSQL / SQLite**, **Vitest** y **TypeScript**.
 
 ---
 
 ## 🎯 1. Propósito y Alcance del Sistema
 
-Este microservicio backend actúa como el núcleo de lógica de negocio, validaciones de dominio y persistencia para la plataforma de entrenamiento físico.
+Este servicio backend actúa como el núcleo de lógica de negocio, validaciones de dominio y persistencia para la plataforma de entrenamiento físico.
 
 ### Capacidades Centrales
-- **Control de Acceso Basado en Roles (RBAC Estricto)**: Tres roles bien definidos: **`ADMIN`**, **`ENTRENADOR`** y **`ATLETA`**, gobernados mediante autenticación criptográfica vía JWT y guardias declarativas (`@Roles()`, `RolesGuard`).
-- **Gestión Centralizada de Usuarios (Sin Registro Público Abierto)**: La creación de nuevas cuentas de entrenadores y atletas está restringida exclusivamente al administrador (`ADMIN`), garantizando control sobre el acceso institucional.
-- **Catálogo Multimedia de Ejercicios**: Administración técnica completa (CRUD) con clasificación por grupo muscular, zonas biomecánicas trabajadas y enlace a material audiovisual in-app (con soporte para YouTube estándar, YouTube Shorts y videos directos).
-- **Prescripción y Versionado de Planes**: Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos, cadencia/tempo). Al activar un nuevo plan para un atleta, las versiones anteriores se archivan automáticamente para mantener una única versión activa. Soporte para **frecuencia semanal** y **sesiones por día** como parámetros configurables del plan.
-- **Historial Cronológico de Planes por Atleta**: Consulta del historial completo de planes asignados con estados calculados dinámicamente (`En Curso`, `Programado`, `Finalizado`), edición de planes existentes y validación de superposición de fechas.
-- **Validación de Superposición de Fechas (Overlap Validation)**: Validación estricta en el backend que impide asignar una rutina a un atleta si el rango de fechas se superpone con otra rutina activa o programada previamente.
-- **Gestión de Plantillas de Rutina (Templates)**: Biblioteca de rutinas reutilizables para que los entrenadores puedan agilizar la prescripción de programas.
-- **Registro Real de Ejecución (Workout Sessions)**: Registro granular de marcas reales (peso levantado en kg y repeticiones logradas por serie), cálculo de RPE (escala Borg/RPE) y feedback de fatiga.
-- **Value Objects Puros e Inmutables (SPMP 6.5.2 & 6.8.5)**: Modelado táctico con `Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration` y `SessionDate` garantizando autovalidación fail-fast y sin efectos colaterales de mutabilidad.
-- **Detección de Récords Personales (PRs)**: Identificación de cargas máximas históricas por ejercicio superadas durante las sesiones.
-- **Métricas Antropométricas y Analíticas**: Registro cronológico de peso corporal, cálculo de progresión de cargas máximas y cálculo de tasa de adherencia al plan de entrenamiento.
-- **Autogestión de Perfil y Credenciales**: Modificación de datos personales, teléfono, notas del atleta, selección de avatares y cambio seguro de contraseñas con verificación mediante `bcrypt`.
+- **Control de Acceso Basado en Roles (RBAC Estricto)**: Tres roles diferenciados: **`ADMIN`**, **`ENTRENADOR`** y **`ATLETA`**, gobernados mediante autenticación criptográfica vía JWT y guardias declarativas (`@Roles()`, `RolesGuard`).
+- **Dashboard Ejecutivo para Administradores del CAR**: Panel analítico de métricas estratégicas institucionales (`/api/v1/analytics/admin/overview`) con:
+  - **Adherencia y Cobertura**: Tasa global y por atleta agrupada en semáforos verde (`≥80%`), amarillo (`50–79%`) y rojo (`<50%`), y porcentaje de cobertura de planes activos (`activePlanCoveragePercentage`).
+  - **Carga, Fatiga y Rendimiento**: Distribución de RPE en 4 bandas de intensidad, RPE promedio, volumen total levantado en kilogramos (tonelaje), PRs detectados y evolución antropométrica.
+  - **Operación del Staff y Catálogo**: Carga de atletas por entrenador, uso de plantillas de rutina, desglose de usuarios por rol y auditoría de cobertura multimedia del catálogo de ejercicios.
+  - **Filtros Flexibles**: Filtros por período (`all`, `30d`, `90d`, `365d`, o rangos de fecha `startDate`/`endDate`), entrenador asignado y rango de adherencia.
+- **Catálogo de Ejercicios Biomecánico Dinámico**:
+  - Clasificación por grupo muscular principal y zonas musculares trabajadas registradas dinámicamente en base de datos.
+  - Soporte multimedia completo para videos in-app (YouTube estándar, YouTube Shorts y enlaces directos MP4/WebM).
+  - Manejo completo de ejercicios sin video: eliminación persistente enviando `null` y estados de fallback amigables.
+- **Prescripción y Versionado de Planes de Entrenamiento**:
+  - Modelado de microciclos y rutinas estructuradas (series objetivo, repeticiones sugeridas, descansos, cadencia/tempo).
+  - Al activar un nuevo plan, los planes previos pasan automáticamente a archivados.
+  - Configuración de frecuencia semanal y sesiones por día.
+  - **Validación Estricta de Superposición de Fechas (Overlap Validation)** que impide solapar microciclos activos o programados.
+- **Biblioteca de Plantillas de Rutina (Templates)**: Rutinas reutilizables para que los entrenadores agilicen la prescripción.
+- **Registro Real de Ejecución (Workout Sessions)**: Registro granular serie por serie de marcas reales (kg levantados y repeticiones), cálculo de RPE (escala Borg 1–10) y duración en minutos.
+- **Value Objects Puros e Inmutables (SPMP 6.5.2 & 6.8.5)**: Modelado táctico con `Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration` y `SessionDate` garantizando autovalidación fail-fast e inmutabilidad.
+- **Detección Automática de Récords Personales (PRs)**: Detección instantánea de superación de marcas históricas de peso máximo y 1RM estimado al guardar cada sesión.
+- **Antropometría y Analítica Individual**: Registro de pesajes corporales, historial cronológico y curvas de progresión de cargas máximas por ejercicio.
 
-> 🚫 **Delimitación de Alcance (Exclusiones Deliberadas)**: En estricta concordancia con la definición del producto, este sistema **no contempla** ni implementa procesamiento de pagos, suscripciones monetarias, pasarelas de cobro, facturación ni sistemas de reservas de turnos de asistencia física.
+> 🚫 **Delimitación de Alcance**: En estricta concordancia con la especificación del dominio deportivo, este sistema **no contempla** procesamiento de pagos, suscripciones monetarias, facturación ni molinetes/control de aforo físico.
 
 ---
 
 ## 🏗️ 2. Arquitectura de Software (Domain-Driven Design - DDD)
 
-El sistema adopta los patrones tácticos de **Domain-Driven Design (DDD)** combinados con arquitectura en capas concéntricas, asegurando que la lógica del negocio permanezca independiente de frameworks y detalles de persistencia.
-
 ```
 GYM_BACK/
+├── SEED/                                 # 📦 Datos Semilla y Respaldos JSON de PostgreSQL
+│   ├── json/                             # Exportaciones JSON por tabla (users, exercises, sessions...)
+│   └── README.md                         # Documentación del seed institucional
+│
 ├── src/
 │   ├── shared/                           # 🌐 Capa Compartida Transversal
 │   │   ├── decorators/                   # @Roles(), @CurrentUser()
@@ -51,284 +61,164 @@ GYM_BACK/
 │   │   ├── domain/                       # Entidades y Contratos de Dominio
 │   │   │   ├── user.entity.ts            # Entidad raíz User
 │   │   │   ├── user-role.enum.ts         # ADMIN | ENTRENADOR | ATLETA
-│   │   │   └── user.repository.interface.ts # Puerto secundario (Repository Interface)
-│   │   ├── application/                  # Casos de Uso y Servicios
-│   │   │   ├── auth.service.ts           # Login, validación de credenciales y emisión JWT
-│   │   │   └── users.service.ts          # Gestión administrativa de usuarios, perfil y cambio de clave
-│   │   ├── infrastructure/               # Adaptadores de Entrada/Salida
-│   │   │   ├── user.orm-entity.ts        # Modelo TypeORM mapeado a la BD
-│   │   │   ├── typeorm-user.repository.ts# Adaptador de persistencia
-│   │   │   └── jwt.strategy.ts           # Estrategia Passport JWT
-│   │   └── presentation/                 # Adaptador Primario (API REST)
-│   │       ├── auth.controller.ts        # Endpoints /api/v1/auth
-│   │       ├── users.controller.ts       # Endpoints /api/v1/users (Gestión Admin y Perfil)
-│   │       └── dtos/                     # LoginDto, CreateUserAdminDto, UpdateProfileDto
+│   │   │   └── user.repository.interface.ts # Puerto secundario
+│   │   ├── application/                  # Casos de Uso (auth.service, users.service)
+│   │   ├── infrastructure/               # Persistencia TypeORM y JWT Strategy
+│   │   └── presentation/                 # auth.controller, users.controller y DTOs
 │   │
 │   ├── training/                         # 🏋️ Bounded Context: Entrenamiento y Métricas
-│   │   ├── domain/                       # Entidades Puras de Negocio y Value Objects
-│   │   │   ├── value-objects/            # 💎 Value Objects (SPMP 6.5.2 & 6.8.5)
-│   │   │   │   ├── rpe.vo.ts             # Escala de esfuerzo subjetivo (1 a 10)
-│   │   │   │   ├── peso-kg.vo.ts         # Peso levantado en serie (≥ 0 kg)
-│   │   │   │   ├── weight.vo.ts          # Peso corporal antropométrico (> 0 kg)
-│   │   │   │   ├── duration.vo.ts        # Duración de la sesión en minutos (≥ 0)
-│   │   │   │   ├── session-date.vo.ts    # Fecha/hora inmutable con copia defensiva
-│   │   │   │   ├── serie-registrada.vo.ts# Serie atómica inmutable (SPMP 6.5.2)
-│   │   │   │   ├── value-objects.spec.ts # Suite de 23 tests de Value Objects
-│   │   │   │   └── index.ts              # Exportador unificado de VOs
-│   │   │   ├── exercise.entity.ts        # Agregado Ejercicio
+│   │   ├── domain/                       # Entidades y Value Objects Puros
+│   │   │   ├── value-objects/            # Rpe, PesoKg, SerieRegistrada, Weight, Duration, SessionDate
+│   │   │   ├── exercise.entity.ts        # Entidad Ejercicio
 │   │   │   ├── training-plan.entity.ts   # Aggregate Root: TrainingPlan
-│   │   │   ├── routine.entity.ts         # Entidad Routine (parte del agregado Plan)
-│   │   │   ├── exercise-item.entity.ts   # Item de ejercicio con series/reps sugeridas
-│   │   │   ├── workout-session.entity.ts # Aggregate Root: Sesión de Entrenamiento ejecutada
-│   │   │   ├── logged-set.entity.ts      # Entidad conectora relacional con TypeORM
-│   │   │   ├── body-weight-record.entity.ts # Entidad Registro antropométrico (AnalyticsContext)
-│   │   │   ├── routine-template.entity.ts# Agregado Plantilla de Rutina
-│   │   │   ├── exercise.repository.interface.ts
-│   │   │   ├── training-plan.repository.interface.ts
-│   │   │   ├── workout-session.repository.interface.ts
-│   │   │   └── body-weight.repository.interface.ts
-│   │   ├── application/                  # Casos de Uso (Orquestación del Dominio)
-│   │   │   ├── exercise.service.ts       # CRUD y catálogo de ejercicios
-│   │   │   ├── training-plan.service.ts  # Creación, versionado y consulta de planes
-│   │   │   ├── workout-session.service.ts# Registro de series y detección de PRs
+│   │   │   ├── routine.entity.ts         # Rutina del plan
+│   │   │   ├── exercise-item.entity.ts   # Ejercicio sugerido en rutina
+│   │   │   ├── workout-session.entity.ts # Aggregate Root: Sesión de entrenamiento ejecutada
+│   │   │   ├── logged-set.entity.ts      # Serie registrada
+│   │   │   ├── body-weight-record.entity.ts # Registro antropométrico
+│   │   │   ├── routine-template.entity.ts# Plantilla de rutina
+│   │   │   └── *.repository.interface.ts # Contratos de repositorios
+│   │   ├── application/                  # Servicios de Aplicación
+│   │   │   ├── analytics.service.ts      # Métricas ejecutivas CAR, adherencia y progresión
+│   │   │   ├── exercise.service.ts       # CRUD de catálogo, grupos musculares y videos
+│   │   │   ├── training-plan.service.ts  # Planes, versionado y validación de superposición
+│   │   │   ├── workout-session.service.ts# Ejecución, RPE y detección de PRs
 │   │   │   ├── body-weight.service.ts    # Historial de pesajes
-│   │   │   ├── analytics.service.ts      # Progresión de cargas y cálculo de adherencia
-│   │   │   └── routine-template.service.ts# Biblioteca de plantillas de entrenamiento
+│   │   │   └── routine-template.service.ts# Plantillas reutilizables
 │   │   ├── infrastructure/               # Modelos TypeORM y Repositorios Concretos
-│   │   │   ├── exercise.orm-entity.ts
-│   │   │   ├── training-plan.orm-entity.ts
-│   │   │   ├── routine.orm-entity.ts
-│   │   │   ├── exercise-item.orm-entity.ts
-│   │   │   ├── workout-session.orm-entity.ts
-│   │   │   ├── logged-set.orm-entity.ts
-│   │   │   ├── body-weight.orm-entity.ts
-│   │   │   ├── routine-template.orm-entity.ts
-│   │   │   ├── typeorm-exercise.repository.ts
-│   │   │   ├── typeorm-training-plan.repository.ts
-│   │   │   ├── typeorm-workout-session.repository.ts
-│   │   │   ├── typeorm-body-weight.repository.ts
-│   │   │   ├── typeorm-routine-template.repository.ts
-│   │   │   └── database-seeder.service.ts# Sembrado automático de datos demo
-│   │   └── presentation/                 # Controladores y Validadores de Entrada
-│   │       ├── exercise.controller.ts
+│   │   │   ├── *.orm-entity.ts           # Modelos mapeados a PostgreSQL / SQLite
+│   │   │   ├── typeorm-*.repository.ts   # Implementaciones de persistencia
+│   │   │   └── database-seeder.service.ts# Sembrado inicial automático
+│   │   └── presentation/                 # Controladores REST y DTOs
+│   │       ├── analytics.controller.ts   # Métricas y Dashboard CAR
+│   │       ├── exercise.controller.ts    # Catálogo de ejercicios
 │   │       ├── training-plan.controller.ts
 │   │       ├── workout-session.controller.ts
-│   │       ├── body-weight.controller.ts
-│   │       ├── analytics.controller.ts
-│   │       ├── routine-template.controller.ts
-│   │       └── dtos/                     # CreateExerciseDto, CreatePlanDto, LogSessionDto, etc.
+│   │       └── dtos/
 │   │
-│   ├── app.module.ts                     # Módulo raíz e inyección de dependencias
-│   └── main.ts                           # Bootstrap, Swagger/Pipes/Filtros globales
+│   ├── app.module.ts                     # Módulo raíz de la aplicación
+│   └── main.ts                           # Bootstrap, Swagger, ValidationPipe global y CORS
 ```
-
-### Bounded Contexts, Raíces de Agregado (Aggregate Roots) y Value Objects
-
-| Bounded Context | Raíz de Agregado | Entidades Internas y Value Objects (VOs) | Invariantes y Reglas de Dominio |
-| :--- | :--- | :--- | :--- |
-| **Users** | `User` | **VOs**: Role (`ADMIN`, `ENTRENADOR`, `ATLETA`), Email, PasswordHash, AvatarUrl | El correo es estrictamente único. Las contraseñas se almacenan con salt `bcrypt`. Solo el `ADMIN` puede crear o eliminar usuarios. Ningún usuario puede alterar su propio rol. |
-| **Training (Catálogo)** | `Exercise` | MuscleGroup, TargetZones, Equipment, VideoUrl | Nombre requerido, grupo muscular obligatorio, URL de video normalizada. Solo editables por entrenadores. |
-| **Training (Prescripción)** | `TrainingPlan` | **Entidades**: `Routine`, `ExerciseItem`<br>**VOs**: DateRange (inicio/fin), Cadence ("3-0-1-0") | Solo puede haber **un plan en estado `ACTIVO`** por atleta a la vez. Al crear un nuevo plan, los anteriores pasan a archivados. Soporta `frequencyPerWeek` (1-7) y `sessionsPerDay` (≥ 1). Validación estricta de superposición de fechas: no se permite asignar un plan cuyo rango [inicio–fin] se solape con otro plan activo o programado del mismo atleta. |
-| **Training (Plantillas)** | `RoutineTemplate`| **Entidades**: `TemplateExerciseItem`, TrainerId | Plantillas reutilizables para entrenadores para agilizar armado de rutinas. |
-| **Training (Ejecución)** | `WorkoutSession` | **VOs**: `Rpe` (1 a 10), `PesoKg` (≥ 0), `Duration` (minutos ≥ 0), `SessionDate` (inmutable), `SerieRegistrada`<br>**Entidad Relacional**: `LoggedSet` | Autovalidación en constructor de VOs. No admite pesos negativos ni repeticiones menores a cero. Una sesión finalizada queda sellada. `LoggedSet` resuelve la compatibilidad entre el SPMP 6.5.2 (VO SerieRegistrada) y la Memoria Técnica 3.4 (UUID persistido). |
-| **Analytics & Antropometría**| `BodyWeightRecord`| **VO**: `Weight` (kg > 0)<br>**VO**: `SessionDate` (Date) | El peso debe ser numérico positivo válido (`> 0`). Se indexa por atleta y marca temporal. |
 
 ---
 
-## ⚙️ 3. Requisitos Previos e Instalación
+## ⚙️ 3. Configuración, Base de Datos e Instalación
 
 ### Requisitos de Entorno
-- **Node.js**: Versión LTS recomendada `v18.x`, `v20.x` o superior.
-- **Gestor de Paquetes**: `npm v9+` o `pnpm v8+`.
-- **Base de Datos**: 
-  - **SQLite3** (Modo por defecto: Cero configuración adicional, genera `gym.sqlite`).
-  - **PostgreSQL 14+** (Soportado para entornos productivos mediante cambio de `DB_TYPE=postgres`).
+- **Node.js**: Versión LTS `v20.x` o `v22.x` recomendada.
+- **PostgreSQL**: `v14+` en puerto `5432` con base de datos `gym_db`.
+- **SQLite3**: Alternativa ligera embebida sin configuración adicional.
 
-### Variables de Entorno
+### Archivo `.env`
 
-Crear un archivo `.env` en la raíz de `GYM_BACK` tomando como base `.env.example`:
-
-```bash
-cp .env.example .env
-```
-
-#### Contenido de `.env.example`
 ```env
-# Configuración del Servidor
 PORT=3000
 NODE_ENV=development
 
-# Configuración de Base de Datos (sqlite | postgres)
-DB_TYPE=sqlite
-DB_DATABASE=gym.sqlite
-
-# Parámetros para PostgreSQL (cuando DB_TYPE=postgres)
+# Configuración de Base de Datos (postgres | sqlite)
+DB_TYPE=postgres
 DB_HOST=localhost
 DB_PORT=5432
 DB_USERNAME=postgres
-DB_PASSWORD=postgres
+DB_PASSWORD=Bautaco
 DB_NAME=gym_db
+
+# Para SQLite (alternativo):
+# DB_TYPE=sqlite
+# DB_DATABASE=gym.sqlite
 
 # Seguridad y Autenticación JWT
 JWT_SECRET=super_secret_jwt_key_apex_fit_2026_production_change_me
 JWT_EXPIRES_IN=7d
 
-# Habilitar Seeder Automático (true en desarrollo para sembrar usuarios y ejercicios de prueba)
-SEED_DATABASE=true
+# Sembrador Automático (opcional en primer arranque)
+SEED_DATABASE=false
 ```
 
-### Paso a Paso de Instalación
+### Comandos de Ejecución
 
-1. **Clonar el repositorio y situarse en la carpeta:**
-   ```bash
-   cd GYM_BACK
-   ```
+```bash
+# 1. Instalar dependencias
+npm install --legacy-peer-deps
 
-2. **Instalar dependencias:**
-   ```bash
-   npm install --legacy-peer-deps
-   ```
+# 2. Iniciar en modo desarrollo (Watch mode)
+npm run start:dev
 
-3. **Iniciar en entorno de Desarrollo (Watch mode con recarga en caliente):**
-   ```bash
-   npm run start:dev
-   ```
-   *La base de datos se inicializará y el servicio sembrará automáticamente las credenciales demo y el catálogo completo de ejercicios con videos operativos.*
+# 3. Compilar para producción (0 errores TypeScript)
+npm run build
 
-4. **Compilar para Producción:**
-   ```bash
-   npm run build
-   ```
-
-5. **Iniciar en Producción:**
-   ```bash
-   npm run start:prod
-   ```
+# 4. Iniciar en modo producción
+npm run start:prod
+```
 
 ---
 
-## 📡 4. Especificación Completa de la API REST (Endpoints & DTOs)
+## 📡 4. Especificación de Endpoints Principales (API REST)
 
-Todos los endpoints protegidos requieren la cabecera HTTP estándar:
+Todos los endpoints protegidos requieren el encabezado:
 ```http
 Authorization: Bearer <JWT_TOKEN>
 ```
 
-### 🔐 Módulo: Autenticación (`/api/v1/auth`)
+### 📊 Métricas Institucionales y Analíticas (`/api/v1/analytics`)
+| Método | Endpoint | Roles | Descripción |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/analytics/admin/overview` | `ADMIN` | Dashboard ejecutivo CAR (Adherencia, Cobertura, RPE, Tonelaje, PRs, Carga Staff y Catálogo). Acepta `period`, `startDate`, `endDate`, `trainerId`, `adherenceRange`. |
+| `GET` | `/api/v1/analytics/athletes/:id/adherence` | Autenticado | Tasa porcentual de adherencia y sesiones esperadas vs. completadas del atleta. |
+| `GET` | `/api/v1/analytics/athletes/:id/strength-progress` | Autenticado | Progresión temporal de peso máximo alcanzado por ejercicio (`?exerciseId=...`). |
 
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/auth/login` | Público | Autenticación con email y contraseña | **Body**: `{ "email": "...", "password": "..." }`<br>**Respuesta 200**: `{ "accessToken": "...", "user": { "id", "email", "fullName", "role", "avatarUrl" } }` |
-| `POST` | `/api/v1/auth/register`| Público | Registro base (mantenido para tests y compatibilidad) | **Body**: `{ "email": "...", "password": "...", "fullName": "...", "role": "ATLETA" }` |
-| `GET` | `/api/v1/auth/me` | Autenticado | Obtiene la información del usuario en sesión | **Respuesta 200**: Datos completos del usuario autenticado |
+### 🏋️ Catálogo de Ejercicios (`/api/v1/exercises`)
+| Método | Endpoint | Roles | Descripción |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/api/v1/exercises` | Autenticado | Lista completa de ejercicios del catálogo. |
+| `GET` | `/api/v1/exercises/muscle-groups` | Autenticado | Grupos musculares registrados y consolidados. |
+| `GET` | `/api/v1/exercises/target-zones` | Autenticado | Zonas musculares trabajadas dinámicas. |
+| `POST` | `/api/v1/exercises` | `ENTRENADOR` | Crea un ejercicio registrando grupos y zonas si no existían. |
+| `PATCH` | `/api/v1/exercises/:id` | `ENTRENADOR` | Edición completa. Enviar `videoUrl: null` o `""` elimina el video. |
+| `DELETE`| `/api/v1/exercises/:id` | `ENTRENADOR` | Eliminación de un ejercicio. |
 
-### 👥 Módulo: Usuarios, Administración y Perfil (`/api/v1/users`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `GET` | `/api/v1/users/admin/all` | `ADMIN` | Listado completo de usuarios del sistema | **Respuesta 200**: `Array<User>` con todos los campos |
-| `POST` | `/api/v1/users/admin/create`| `ADMIN` | Alta de nuevo usuario con rol asignado | **Body**: `{ "email": "...", "password": "...", "fullName": "...", "role": "ENTRENADOR" \| "ATLETA", "phone": "..." }`<br>**Respuesta 201**: Usuario creado |
-| `DELETE`| `/api/v1/users/admin/:id` | `ADMIN` | Baja definitiva de un usuario | **Respuesta 200**: Confirmación de eliminación |
-| `GET` | `/api/v1/users/trainers` | Autenticado | Listado de entrenadores disponibles | **Respuesta 200**: `Array<User>` con rol ENTRENADOR |
-| `GET` | `/api/v1/users/athletes` | `ENTRENADOR`, `ADMIN` | Listado de todos los atletas registrados | **Respuesta 200**: `Array<User>` con rol ATLETA |
-| `PATCH` | `/api/v1/users/me` | Autenticado | Autogestión de perfil (nombre, teléfono, notas, avatar y contraseña) | **Body (opcional)**: `{ "fullName": "...", "phone": "...", "notes": "...", "avatarUrl": "...", "currentPassword": "...", "newPassword": "..." }` |
-| `PATCH` | `/api/v1/users/profile` | Autenticado | Alias para actualización de perfil | Idéntico a `/api/v1/users/me` |
-| `GET` | `/api/v1/users/:id` | Autenticado | Detalle público del perfil de un usuario | **Respuesta 200**: Perfil de usuario |
-
-### 🏋️ Módulo: Catálogo de Ejercicios (`/api/v1/exercises`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `GET` | `/api/v1/exercises` | Autenticado | Consulta de todos los ejercicios del catálogo | **Respuesta 200**: Lista de ejercicios con zonas trabajadas y video |
-| `GET` | `/api/v1/exercises/:id` | Autenticado | Detalle de un ejercicio específico | **Respuesta 200**: Detalle técnico del ejercicio |
-| `POST` | `/api/v1/exercises` | `ENTRENADOR` | Creación de un nuevo ejercicio técnico | **Body**: `{ "nombre": "Press Militar", "grupoMuscular": "Hombros", "zonasTrabajadas": "Deltoides anterior, Tríceps", "instrucciones": "...", "equipamiento": "Barra Olímpica", "videoUrl": "https://..." }` |
-| `PATCH` | `/api/v1/exercises/:id` | `ENTRENADOR` | Modificación completa de datos de un ejercicio | **Body**: Parcial de `CreateExerciseDto` |
-| `DELETE`| `/api/v1/exercises/:id` | `ENTRENADOR` | Eliminación definitiva de un ejercicio | **Respuesta 204**: Sin contenido |
-
-### 📋 Módulo: Plantillas de Rutinas (`/api/v1/templates`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `GET` | `/api/v1/templates` | Autenticado | Consulta las plantillas guardadas | **Respuesta 200**: `Array<RoutineTemplate>` |
-| `GET` | `/api/v1/templates/:id` | Autenticado | Detalle de una plantilla específica | **Respuesta 200**: Objeto plantilla con sus ejercicios |
-| `POST` | `/api/v1/templates` | `ENTRENADOR`, `ADMIN` | Guarda una nueva plantilla de rutina | **Body**: `{ "nombre": "Torso Hipertrofia", "descripcion": "...", "items": [ { "ejercicioId": "...", "seriesObjetivo": 4, "repeticionesSugeridas": "8-10", "descansoSegundos": 90 } ] }` |
-| `DELETE`| `/api/v1/templates/:id` | `ENTRENADOR`, `ADMIN` | Elimina una plantilla | **Respuesta 200**: Confirmación de eliminación |
-
-### 📅 Módulo: Planes de Entrenamiento (`/api/v1/training-plans`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/training-plans` | `ENTRENADOR` | Crea y activa un plan de entrenamiento con rutinas. Valida que no exista superposición de fechas con planes activos/programados del mismo atleta. | **Body**: `{ "nombre": "Fuerza 4 Días", "atletaId": "...", "fechaInicio": "2026-10-01", "fechaFin": "2026-11-01", "frequencyPerWeek": 4, "sessionsPerDay": 1, "rutinas": [ { "nombreDia": "Día 1 - Torso", "items": [...] } ] }` |
-| `PUT` | `/api/v1/training-plans/:id` | `ENTRENADOR` | Actualiza un plan existente (nombre, fechas, rutinas, frecuencia). Valida superposición de fechas excluyendo el propio plan. | **Body**: Idéntico a `POST`. **Respuesta 200**: Plan actualizado |
-| `GET` | `/api/v1/training-plans/athlete/:id` | Autenticado | Retorna el plan de entrenamiento **ACTIVO** del atleta | **Respuesta 200**: Objeto `TrainingPlan` activo con rutinas e items |
-| `GET` | `/api/v1/training-plans/athlete/:id/all` | Autenticado | Historial completo de planes del atleta (activos, programados y finalizados) | **Respuesta 200**: `Array<TrainingPlan>` ordenado cronológicamente |
-| `GET` | `/api/v1/training-plans/:id` | Autenticado | Detalle de un plan por su ID | **Respuesta 200**: Objeto `TrainingPlan` |
-
-### ⏱️ Módulo: Ejecución de Sesiones (`/api/v1/training-sessions`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/training-sessions/log` | `ATLETA` | Registra la ejecución real de una rutina completada | **Body**: `{ "atletaId": "...", "rutinaId": "...", "duracionMinutos": 60, "rpe": 8, "feedback": "Buena congestión", "series": [ { "ejercicioId": "...", "numeroSerie": 1, "pesoKg": 100, "repeticionesLogradas": 8 } ] }` |
-| `GET` | `/api/v1/training-sessions/athlete/:id` | Autenticado | Historial cronológico de sesiones realizadas | **Respuesta 200**: `Array<WorkoutSession>` ordenado por fecha |
-
-### ⚖️ Módulo: Antropometría y Analítica (`/api/v1/athletes` y `/api/v1/analytics`)
-
-| Método | Endpoint | Roles | Descripción | Request Body / Response |
-| :--- | :--- | :--- | :--- | :--- |
-| `POST` | `/api/v1/athletes/:id/body-weight` | `ATLETA` | Registro de peso corporal | **Body**: `{ "pesoKg": 78.5, "fecha": "2026-10-14" }` |
-| `GET` | `/api/v1/athletes/:id/body-weight` | Autenticado | Historial cronológico de pesajes | **Respuesta 200**: `Array<{ id, pesoKg, fecha }>` |
-| `GET` | `/api/v1/analytics/athletes/:id/strength-progress` | Autenticado | Serie temporal de peso máximo alcanzado por ejercicio | **Respuesta 200**: `{ "ejercicios": [ { "ejercicio": "Press de Banca", "historial": [ { "fecha", "pesoMaximo" } ] } ] }` |
-| `GET` | `/api/v1/analytics/athletes/:id/adherence` | Autenticado | Tasa porcentual de adherencia y sesiones completadas | **Respuesta 200**: `{ "sesionesCompletadas": 12, "sesionesEsperadas": 15, "porcentajeAdherencia": 80 }` |
+### 📅 Planes y Sesiones (`/api/v1/training-plans` y `/api/v1/training-sessions`)
+| Método | Endpoint | Roles | Descripción |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/api/v1/training-plans` | `ENTRENADOR` | Crea y activa un plan de entrenamiento con validación de superposición de fechas. |
+| `PUT` | `/api/v1/training-plans/:id` | `ENTRENADOR` | Actualiza un plan existente revalidando rangos temporales. |
+| `GET` | `/api/v1/training-plans/athlete/:id` | Autenticado | Obtiene el plan activo del atleta. |
+| `GET` | `/api/v1/training-plans/athlete/:id/all` | Autenticado | Historial cronológico completo de planes del atleta. |
+| `POST` | `/api/v1/training-sessions/log` | `ATLETA` | Registra sesión ejecutada, RPE, duración y detecta récords personales (PRs). |
 
 ---
 
-## 🧪 5. Estrategia de Testeo y Aseguramiento de Calidad (QA)
+## 🧪 5. Testing y Aseguramiento de Calidad (QA)
 
-El backend incorpora suites automatizadas de pruebas unitarias y de integración end-to-end implementadas con **Vitest** (v4.1.2), `@vitest/coverage-v8`, `@nestjs/testing` y `supertest`:
+El backend cuenta con **7 suites de prueba y 74 tests automatizados pasando al 100%**:
 
 ```bash
-# Ejecutar todas las pruebas unitarias (36 pruebas automatizadas pasando al 100%)
+# Ejecutar todas las pruebas unitarias y de integración
 npm test
 
-# Ejecutar pruebas en modo observador interactivo (TDD)
+# Ejecutar pruebas en modo observador (watch)
 npm run test:watch
 
-# Generar reporte completo de cobertura de código
+# Generar reporte de cobertura de código
 npm run test:cov
-
-# Ejecutar pruebas End-to-End (E2E) con configuración dedicada
-npm run test:e2e
 ```
 
-### Arquitectura de Pruebas y Suites Implementadas
-1. **Value Objects y Reglas de Negocio Puras (`value-objects.spec.ts`)**:
-   - **23 pruebas exhaustivas** que validan inmutabilidad (sin setters, copias defensivas), comparación profunda de atributos (`equals`), validaciones de rango (RPE 1-10, peso ≥ 0, peso corporal > 0, duración ≥ 0) e interoperabilidad con entidades persistidas.
-2. **Servicios de Aplicación (Historias de Usuario)**:
-   - **HU-01 / HU-02 / HU-13 ([`training-plan.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/training-plan.service.spec.ts))**: Validación de creación de planes, desactivación automática de planes previos, validación cronológica de fechas y **validación de superposición de fechas (overlap) entre planes** (CP-01-03).
-   - **HU-03 ([`workout-session.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/workout-session.service.spec.ts))**: Registro de series, validación de cargas no negativas y detección de Récords Personales (PRs).
-   - **HU-04 ([`analytics.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/analytics.service.spec.ts))**: Progresión de cargas (1RM y peso máximo) y tasa de adherencia.
-   - **Catálogo ([`exercise.service.spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/training/application/exercise.service.spec.ts))**: Mantenimiento del catálogo técnico de ejercicios.
-3. **Controladores e Integración HTTP ([`app.e2e-spec.ts`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/test/app.e2e-spec.ts))**:
-   - Verificación del ciclo de vida del servidor NestJS, inyección de dependencias y respuestas HTTP con `supertest`.
+### Cobertura de las Suites
+- **`value-objects.spec.ts` (23 tests)**: Inmutabilidad, comparación por valor y autovalidaciones de los Value Objects del dominio (`Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration`, `SessionDate`).
+- **`analytics.service.spec.ts` (16 tests)**: Métricas CAR de adherencia, cobertura de planes, fatiga/RPE, PRs, antropometría, auditoría de entrenadores, catálogo multimedia y filtros temporales.
+- **`exercise.service.spec.ts` (13 tests)**: Creación de ejercicios, sincronización automática de grupos musculares y eliminación persistente de video (`null`/`""`).
+- **`exercise.controller.spec.ts` (7 tests)**: Control de endpoints REST de ejercicios, grupos y zonas.
+- **`training-plan.service.spec.ts` (8 tests)**: Creación, archivado de planes anteriores y validación contra superposición de fechas.
+- **`workout-session.service.spec.ts` (6 tests)**: Registro de series, validación de pesos no negativos y detección de PRs.
+- **`app.controller.spec.ts` (1 test)**: Comprobación de salud e inyección del core NestJS.
 
 ---
 
-## 💎 6. Principios de Calidad y Convenciones de Código
-
-- **Validación Estricta de Entradas**: Todos los DTOs implementan decoradores de `class-validator` y `class-transformer` (`@IsNotEmpty`, `@IsString`, `@IsNumber`, `@Min`, `@IsUrl`, `@IsEnum`). Un `ValidationPipe` global con `{ whitelist: true, forbidNonWhitelisted: true }` descarta automáticamente cualquier propiedad no autorizada en el payload.
-- **Filtro Global de Excepciones**: Implementación de [`AllExceptionsFilter`](file:///d:/Bautaco/Documents/Universidad/Ingenieria%20y%20calidad%20de%20software/Proyecto%203/GYM/GYM_BACK/src/shared/filters/http-exception.filter.ts) que intercepta errores HTTP y de base de datos, unificando la salida JSON en un formato consistente con marca de tiempo y ruta.
-- **Linters y Formato**: Configuración estricta de **ESLint** y **Prettier** para mantener estándares de estilo en todo el equipo.
-- **Seguridad Criptográfica**: Las contraseñas se almacenan mediante hashing irreversibles con **bcryptjs** (cost factor 10). Las firmas de los tokens JWT utilizan claves seguras configurables vía entorno.
-
----
-
-## 👤 7. Usuarios y Credenciales Demo Precargadas
-
-Al iniciar con `SEED_DATABASE=true`, la base de datos se sembrará con las siguientes cuentas de prueba:
+## 🔑 6. Usuarios Demo Precargados
 
 | Rol | Correo Electrónico | Contraseña | Vistas y Capacidades |
 | :--- | :--- | :--- | :--- |
-| **ADMIN** | `admin@gym.com` | `admin123` | Control total de usuarios (crear/eliminar entrenadores y atletas), auditoría global |
-| **ENTRENADOR** | `entrenador@gym.com` | `admin123` | Control de catálogo de ejercicios, creación y asignación de planes, biblioteca de plantillas, auditoría de métricas de alumnos |
-| **ATLETA 1** | `atleta@gym.com` | `atleta123` | Plan de 2 días activo (frecuencia: 3 días/semana, 1 sesión/día), historial de series y pesajes cargados, registro interactivo |
-| **ATLETA 2** | `marcos@gym.com` | `atleta123` | Alumno registrado disponible para asignación de nuevos planes de entrenamiento |
+| **ADMIN** | `admin@gym.com` | `admin123` | Control total de usuarios, auditoría general y Dashboard Ejecutivo de Alto Rendimiento |
+| **ENTRENADOR** | `entrenador@gym.com` | `admin123` | Constructor de planes, biblioteca de plantillas, catálogo de ejercicios y métricas de alumnos |
+| **ATLETA 1** | `atleta@gym.com` | `atleta123` | Atleta con plan activo, historial de series registradas, pesajes y gráficos de progresión |
+| **ATLETA 2** | `marcos@gym.com` | `atleta123` | Atleta registrado disponible para prescripción de nuevos programas |

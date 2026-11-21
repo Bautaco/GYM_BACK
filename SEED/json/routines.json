@@ -1,0 +1,205 @@
+[
+  {
+    "id": "8f6b6618-e4b0-4449-804f-f84d6a52cc8c",
+    "name": "Día 1: Fuerza Inferior y Tren Superior",
+    "dayOfWeek": 1,
+    "description": "Sesión focalizada en cargas principales de tren inferior y pectoral.",
+    "trainingPlanId": "667a4c9f-2bdd-4d71-9af4-5af237985a92"
+  },
+  {
+    "id": "9fc6841e-589e-4c31-ba69-6d45205b21af",
+    "name": "Día 2: Tracción y Cadena Posterior",
+    "dayOfWeek": 3,
+    "description": "Trabajo de fuerza pura en bisagra de cadera y empuje vertical.",
+    "trainingPlanId": "667a4c9f-2bdd-4d71-9af4-5af237985a92"
+  },
+  {
+    "id": "8ea31c92-bbea-4e29-88f2-ee0a0b43031d",
+    "name": "Día 1: Piernas y Core",
+    "dayOfWeek": 1,
+    "description": "Enfoque en sentadilla y potencia inferior",
+    "trainingPlanId": "9d984fec-8ffe-4875-86d4-296edbbda3ab"
+  },
+  {
+    "id": "35bd926a-07f0-491d-a417-c63f0ac162b4",
+    "name": "Día 2: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "9d984fec-8ffe-4875-86d4-296edbbda3ab"
+  },
+  {
+    "id": "12cbdc04-50a0-484b-999e-7de76cd62e3e",
+    "name": "Día 1: Piernas y Core",
+    "dayOfWeek": 1,
+    "description": "Enfoque en sentadilla y potencia inferior",
+    "trainingPlanId": "ad92b930-a102-4c1e-bfa7-9e22f5d9f9a4"
+  },
+  {
+    "id": "1aa32830-766a-44c7-9f50-e33a7bbff5c7",
+    "name": "Día 2: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "ad92b930-a102-4c1e-bfa7-9e22f5d9f9a4"
+  },
+  {
+    "id": "411d152f-fc61-46e0-bd9d-0aa38ab47f83",
+    "name": "Día 1: Piernas y Core",
+    "dayOfWeek": 1,
+    "description": "Enfoque en sentadilla y potencia inferior",
+    "trainingPlanId": "f8ca4a3d-d7b4-412a-82c6-5e9e03d449fd"
+  },
+  {
+    "id": "41add26a-4f6d-4dd2-923b-8a7ead0b0bd4",
+    "name": "Día 2: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "f8ca4a3d-d7b4-412a-82c6-5e9e03d449fd"
+  },
+  {
+    "id": "60e8c6f7-5f34-48d3-9b61-abe71a6ded5a",
+    "name": "Día 1: Piernas y Core",
+    "dayOfWeek": 1,
+    "description": "Enfoque en sentadilla y potencia inferior",
+    "trainingPlanId": "e49eb1fa-59ec-4d39-913b-80d55ac74ec0"
+  },
+  {
+    "id": "ddf19dc2-b424-40f6-9c09-049c093513b6",
+    "name": "Día 2: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "e49eb1fa-59ec-4d39-913b-80d55ac74ec0"
+  },
+  {
+    "id": "9b807b1d-5720-46a5-bd23-2b30c0d6772b",
+    "name": "Día 3: Sesión Personalizada",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "e49eb1fa-59ec-4d39-913b-80d55ac74ec0"
+  },
+  {
+    "id": "687088ca-32d5-4b94-8143-2ea8005a1a3a",
+    "name": "Día 1: Piernas y Core",
+    "dayOfWeek": 1,
+    "description": "Enfoque en sentadilla y potencia inferior",
+    "trainingPlanId": "85154914-3661-490b-a686-751ddc7a792b"
+  },
+  {
+    "id": "e80b21d0-558c-4e9d-b392-31d42c7fc360",
+    "name": "Día 2: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "85154914-3661-490b-a686-751ddc7a792b"
+  },
+  {
+    "id": "0e949eca-9d66-4375-b960-4b780daa544d",
+    "name": "Día 1: Torso y Empuje",
+    "dayOfWeek": 3,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "31342778-f5cc-4a1f-8803-f87fe3abd213"
+  },
+  {
+    "id": "06ddbac3-cc8e-4021-967c-c0172f514375",
+    "name": "Día 1: Torso y Empuje (Push)",
+    "dayOfWeek": 1,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "2116cc6d-55c8-4afa-b60c-2b679c3568fd"
+  },
+  {
+    "id": "42c44cd0-459d-4ad3-887a-8aa57a3800d2",
+    "name": "Día 2: Espalda y Tracción (Pull)",
+    "dayOfWeek": 3,
+    "description": "",
+    "trainingPlanId": "2116cc6d-55c8-4afa-b60c-2b679c3568fd"
+  },
+  {
+    "id": "4ae6544d-a1eb-4497-b09f-0014c0e567f5",
+    "name": "Día 3: Piernas y Core",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "2116cc6d-55c8-4afa-b60c-2b679c3568fd"
+  },
+  {
+    "id": "7fe8c3ae-1529-467d-a080-6cb7abf843c5",
+    "name": "Día 1: Torso y Empuje (Push)",
+    "dayOfWeek": 1,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "06a02f89-96b3-4019-aa36-2b0807a9f20e"
+  },
+  {
+    "id": "144873c6-e496-4474-abe0-568e10156248",
+    "name": "Día 2: Espalda y Tracción (Pull)",
+    "dayOfWeek": 3,
+    "description": "",
+    "trainingPlanId": "06a02f89-96b3-4019-aa36-2b0807a9f20e"
+  },
+  {
+    "id": "af872113-4dcd-412f-be3b-79f817057a77",
+    "name": "Día 3: Piernas y Core",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "06a02f89-96b3-4019-aa36-2b0807a9f20e"
+  },
+  {
+    "id": "3b9f6a00-6ce6-47cd-83ad-03b42d40346e",
+    "name": "Día 1: Torso y Empuje (Push)",
+    "dayOfWeek": 6,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "eef56145-9b27-470c-947c-4f7e9c694306"
+  },
+  {
+    "id": "57787b16-62c4-45cf-9882-c75d595a71cd",
+    "name": "Día 2: Espalda y Tracción (Pull)",
+    "dayOfWeek": 3,
+    "description": "",
+    "trainingPlanId": "eef56145-9b27-470c-947c-4f7e9c694306"
+  },
+  {
+    "id": "a80b0922-2a5d-44a6-a583-b7ccfd5377d0",
+    "name": "Día 3: Piernas y Core",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "eef56145-9b27-470c-947c-4f7e9c694306"
+  },
+  {
+    "id": "fdcf108b-87f7-415f-944f-65735529f5e3",
+    "name": "Día 1: Torso y Empuje (Push)",
+    "dayOfWeek": 1,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "95a247bb-ede0-4ad6-9dd5-dc2b421e3c19"
+  },
+  {
+    "id": "8d35a31e-486f-4343-ab7c-8d2cfcd05047",
+    "name": "Día 2: Espalda y Tracción (Pull)",
+    "dayOfWeek": 3,
+    "description": "",
+    "trainingPlanId": "95a247bb-ede0-4ad6-9dd5-dc2b421e3c19"
+  },
+  {
+    "id": "1f082a38-5a01-4dcb-bb06-633cbec21d59",
+    "name": "Día 3: Piernas y Core",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "95a247bb-ede0-4ad6-9dd5-dc2b421e3c19"
+  },
+  {
+    "id": "0d9e19b7-1160-452d-870e-96fd7228b11d",
+    "name": "Día 1: Torso y Empuje (Push)",
+    "dayOfWeek": 1,
+    "description": "Enfoque en press de banca y hombros",
+    "trainingPlanId": "0fbe73ba-9f6f-4822-972f-62554c074852"
+  },
+  {
+    "id": "df1d8c5a-f63c-45d7-a6ea-e6d17fa0e78f",
+    "name": "Día 2: Espalda y Tracción (Pull)",
+    "dayOfWeek": 3,
+    "description": "",
+    "trainingPlanId": "0fbe73ba-9f6f-4822-972f-62554c074852"
+  },
+  {
+    "id": "d814cbc4-54cc-473a-bd04-9539182eae35",
+    "name": "Día 3: Piernas y Core",
+    "dayOfWeek": 5,
+    "description": "",
+    "trainingPlanId": "0fbe73ba-9f6f-4822-972f-62554c074852"
+  }
+]
