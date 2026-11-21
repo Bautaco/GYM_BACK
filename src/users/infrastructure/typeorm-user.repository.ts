@@ -65,7 +65,7 @@ export class TypeOrmUserRepository implements IUserRepository {
 
   async findByTrainerId(trainerId: string): Promise<User[]> {
     const found = await this.repo.find({
-      where: { trainerId },
+      where: { trainerId, role: UserRole.ATLETA },
       order: { fullName: 'ASC' },
     });
     return found.map((u) => this.toDomain(u));

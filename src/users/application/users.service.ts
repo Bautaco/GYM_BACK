@@ -99,6 +99,20 @@ export class UsersService {
     }));
   }
 
+  async getAthletesByTrainer(trainerId: string) {
+    const athletes = await this.userRepository.findByTrainerId(trainerId);
+    return athletes.map((a) => ({
+      id: a.id,
+      email: a.email,
+      fullName: a.fullName,
+      phone: a.phone,
+      notes: a.notes,
+      avatarUrl: a.avatarUrl,
+      trainerId: a.trainerId,
+      createdAt: a.createdAt,
+    }));
+  }
+
   async getTrainers() {
     const trainers = await this.userRepository.findByRole(UserRole.ENTRENADOR);
     return trainers.map((t) => ({

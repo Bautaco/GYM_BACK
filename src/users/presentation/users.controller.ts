@@ -54,10 +54,13 @@ export class UsersController {
     return this.usersService.getTrainers();
   }
 
-  // Listado de atletas (para entrenadores y administradores)
+  // Listado de atletas (para entrenadores devuelve sólo sus asignados; para administradores devuelve todos)
   @Get('athletes')
   @Roles(UserRole.ENTRENADOR, UserRole.ADMIN)
-  async getAthletes() {
+  async getAthletes(@CurrentUser() user: any) {
+    if (user.role === UserRole.ENTRENADOR) {
+      return this.usersService.getAthletesByTrainer(user.id);
+    }
     return this.usersService.getAthletes();
   }
 
