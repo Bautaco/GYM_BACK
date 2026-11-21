@@ -3,6 +3,7 @@ import { AnalyticsService } from '../application/analytics.service.js';
 import { JwtAuthGuard } from '../../shared/guards/jwt-auth.guard.js';
 import { RolesGuard } from '../../shared/guards/roles.guard.js';
 import { Roles, UserRole } from '../../shared/decorators/roles.decorator.js';
+import { CurrentUser } from '../../shared/decorators/current-user.decorator.js';
 
 @Controller('api/v1/analytics')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -27,12 +28,18 @@ export class AnalyticsController {
   async getStrengthProgress(
     @Param('athleteId') athleteId: string,
     @Query('exerciseId') exerciseId: string,
+    @CurrentUser() user: any,
   ) {
+    await this.analyticsService.validateAthleteAccess(athleteId, user);
     return this.analyticsService.getStrengthProgress(athleteId, exerciseId);
   }
 
   @Get('athletes/:athleteId/adherence')
-  async getAdherence(@Param('athleteId') athleteId: string) {
+  async getAdherence(
+    @Param('athleteId') athleteId: string,
+    @CurrentUser() user: any,
+  ) {
+    await this.analyticsService.validateAthleteAccess(athleteId, user);
     return this.analyticsService.getAdherence(athleteId);
   }
 }

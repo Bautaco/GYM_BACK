@@ -22,12 +22,20 @@ export class TrainingPlanController {
   constructor(private readonly planService: TrainingPlanService) {}
 
   @Get('athlete/:athleteId')
-  async getActivePlanByAthlete(@Param('athleteId') athleteId: string) {
+  async getActivePlanByAthlete(
+    @Param('athleteId') athleteId: string,
+    @CurrentUser() user: any,
+  ) {
+    await this.planService.validateAthleteAccess(athleteId, user);
     return this.planService.getActivePlanByAthlete(athleteId);
   }
 
   @Get('athlete/:athleteId/all')
-  async getAllPlansByAthlete(@Param('athleteId') athleteId: string) {
+  async getAllPlansByAthlete(
+    @Param('athleteId') athleteId: string,
+    @CurrentUser() user: any,
+  ) {
+    await this.planService.validateAthleteAccess(athleteId, user);
     return this.planService.getAllPlansByAthlete(athleteId);
   }
 

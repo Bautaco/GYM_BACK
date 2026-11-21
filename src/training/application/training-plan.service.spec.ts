@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { TrainingPlanService } from './training-plan.service.js';
-import { BadRequestException, NotFoundException } from '@nestjs/common';
+import { BadRequestException, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { UserRole } from '../../shared/decorators/roles.decorator.js';
 
 describe('TrainingPlanService (HU-01, HU-02)', () => {
@@ -12,6 +12,7 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
     id,
     fullName: 'Lucas Gómez',
     role: UserRole.ATLETA,
+    trainerId: 'trainer-1',
   });
 
   const makeValidDto = (overrides: Record<string, any> = {}) => ({
@@ -118,6 +119,19 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
 
       await expect(service.createPlan(dto, 'trainer-1')).rejects.toThrow(BadRequestException);
     });
+
+    it('CP-01-08: Lanza ForbiddenException si el atleta está asignado a otro entrenador', async () => {
+      mockUserRepo.findById.mockResolvedValueOnce({
+        id: 'athlete-other',
+        fullName: 'Otro Atleta',
+        role: UserRole.ATLETA,
+        trainerId: 'trainer-2',
+      });
+
+      await expect(
+        service.createPlan(makeValidDto({ athleteId: 'athlete-other' }), 'trainer-1'),
+      ).rejects.toThrow(ForbiddenException);
+    });
   });
 
   // ─── getActivePlanByAthlete ───────────────────────────────────────────
@@ -140,6 +154,43 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
       mockPlanRepo.findActiveByAthleteId.mockResolvedValue(null);
       const result = await service.getActivePlanByAthlete('athlete-without-plan');
       expect(result).toBeNull();
+    });
+  });
+
+  // ─── validateAthleteAccess ────────────────────────────────────────────
+  describe('validateAthleteAccess()', () => {
+    it('CP-03-01: Permite acceso a un administrador sobre cualquier atleta', async () => {
+      await expect(
+        service.validateAthleteAccess('athlete-1', { id: 'admin-1', role: UserRole.ADMIN }),
+      ).resolves.toBeUndefined();
+    });
+
+    it('CP-03-02: Permite a un atleta consultar únicamente sus propios planes', async () => {
+      await expect(
+        service.validateAthleteAccess('athlete-1', { id: 'athlete-1', role: UserRole.ATLETA }),
+      ).resolves.toBeUndefined();
+
+      await expect(
+        service.validateAthleteAccess('athlete-2', { id: 'athlete-1', role: UserRole.ATLETA }),
+      ).rejects.toThrow(ForbiddenException);
+    });
+
+    it('CP-03-03: Permite al entrenador consultar planes de atletas que tiene asignados', async () => {
+      await expect(
+        service.validateAthleteAccess('athlete-1', { id: 'trainer-1', role: UserRole.ENTRENADOR }),
+      ).resolves.toBeUndefined();
+    });
+
+    it('CP-03-04: Bloquea a un entrenador si el atleta está asignado a otro entrenador', async () => {
+      mockUserRepo.findById.mockResolvedValueOnce({
+        id: 'athlete-other',
+        role: UserRole.ATLETA,
+        trainerId: 'trainer-2',
+      });
+
+      await expect(
+        service.validateAthleteAccess('athlete-other', { id: 'trainer-1', role: UserRole.ENTRENADOR }),
+      ).rejects.toThrow(ForbiddenException);
     });
   });
 });

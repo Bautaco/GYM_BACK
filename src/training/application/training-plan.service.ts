@@ -3,6 +3,7 @@ import {
   Inject,
   BadRequestException,
   NotFoundException,
+  ForbiddenException,
 } from '@nestjs/common';
 import {
   ITrainingPlanRepository,
@@ -16,6 +17,7 @@ import { TrainingPlan } from '../domain/training-plan.entity.js';
 import { Routine } from '../domain/routine.entity.js';
 import { ExerciseItem } from '../domain/exercise-item.entity.js';
 import { CreateTrainingPlanDto } from '../presentation/dtos/create-training-plan.dto.js';
+import { UserRole } from '../../shared/decorators/roles.decorator.js';
 
 @Injectable()
 export class TrainingPlanService {
@@ -78,6 +80,12 @@ export class TrainingPlanService {
     const athlete = await this.userRepo.findById(dto.athleteId);
     if (!athlete) {
       throw new NotFoundException('El atleta seleccionado no existe en el sistema');
+    }
+
+    if (athlete.trainerId && athlete.trainerId !== trainerId) {
+      throw new ForbiddenException(
+        'No tienes permisos para prescribir planes a un atleta asignado a otro entrenador',
+      );
     }
 
     const startDate = new Date(dto.startDate);
@@ -164,6 +172,12 @@ export class TrainingPlanService {
       throw new NotFoundException('El atleta seleccionado no existe en el sistema');
     }
 
+    if (athlete.trainerId && athlete.trainerId !== trainerId) {
+      throw new ForbiddenException(
+        'No tienes permisos para prescribir planes a un atleta asignado a otro entrenador',
+      );
+    }
+
     const startDate = new Date(dto.startDate);
     const endDate = new Date(dto.endDate);
     if (endDate < startDate) {
@@ -229,5 +243,31 @@ export class TrainingPlanService {
       throw new NotFoundException(`Plan de entrenamiento con ID ${id} no encontrado`);
     }
     return found;
+  }
+
+  async validateAthleteAccess(
+    athleteId: string,
+    user?: { id: string; role: string },
+  ): Promise<void> {
+    if (!user) return;
+    if (user.role === UserRole.ADMIN) {
+      return;
+    }
+    if (user.role === UserRole.ATLETA) {
+      if (user.id !== athleteId) {
+        throw new ForbiddenException(
+          'No tienes permisos para consultar planes de otro atleta.',
+        );
+      }
+      return;
+    }
+    if (user.role === UserRole.ENTRENADOR) {
+      const athlete = await this.userRepo.findById(athleteId);
+      if (athlete && athlete.trainerId && athlete.trainerId !== user.id) {
+        throw new ForbiddenException(
+          'No tienes permisos para consultar planes de un atleta asignado a otro entrenador.',
+        );
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable, Inject, Optional } from '@nestjs/common';
+import { Injectable, Inject, Optional, ForbiddenException } from '@nestjs/common';
 import {
   IWorkoutSessionRepository,
   WORKOUT_SESSION_REPOSITORY_TOKEN,
@@ -52,6 +52,33 @@ export class AnalyticsService {
     @Inject(ROUTINE_TEMPLATE_REPOSITORY_TOKEN)
     private readonly templateRepo?: IRoutineTemplateRepository,
   ) {}
+
+  async validateAthleteAccess(
+    athleteId: string,
+    user?: { id: string; role: string },
+  ): Promise<void> {
+    if (!user) return;
+    if (user.role === UserRole.ADMIN) {
+      return;
+    }
+    if (user.role === UserRole.ATLETA) {
+      if (user.id !== athleteId) {
+        throw new ForbiddenException(
+          'No tienes permisos para consultar las métricas de otro atleta.',
+        );
+      }
+      return;
+    }
+    if (user.role === UserRole.ENTRENADOR) {
+      if (!this.userRepo) return;
+      const athlete = await this.userRepo.findById(athleteId);
+      if (athlete && athlete.trainerId && athlete.trainerId !== user.id) {
+        throw new ForbiddenException(
+          'No tienes permisos para consultar las métricas de un atleta asignado a otro entrenador.',
+        );
+      }
+    }
+  }
 
   async getStrengthProgress(athleteId: string, exerciseId: string) {
     const exercise = await this.exerciseRepo.findById(exerciseId);
