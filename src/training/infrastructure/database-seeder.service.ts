@@ -304,6 +304,18 @@ export class DatabaseSeederService implements OnApplicationBootstrap {
       'Trabajo de fuerza pura en bisagra de cadera y empuje vertical.',
     );
 
+    // Day 3: Volumen y Core (Viernes)
+    const routineDay3 = new Routine(
+      '',
+      'Día 3: Volumen y Core',
+      5, // Viernes
+      [
+        new ExerciseItem('', bench.id, bench.nombre, 3, 10, 60, 90, 'Énfasis en recorrido completo'),
+        new ExerciseItem('', squat.id, squat.nombre, 3, 10, 70, 90, 'Velocidad de ejecución controlada'),
+      ],
+      'Sesión de cierre semanal para balance estructural y volumen.',
+    );
+
     const now = new Date();
     const fourWeeksLater = new Date(now.getTime() + 28 * 24 * 60 * 60 * 1000);
 
@@ -315,7 +327,7 @@ export class DatabaseSeederService implements OnApplicationBootstrap {
       now,
       fourWeeksLater,
       true,
-      [routineDay1, routineDay2],
+      [routineDay1, routineDay2, routineDay3],
       athlete.fullName,
       trainer.fullName,
       now,

@@ -96,11 +96,43 @@ export class TypeOrmTrainingPlanRepository implements ITrainingPlanRepository {
   }
 
   async findActiveByAthleteId(athleteId: string): Promise<TrainingPlan | null> {
-    const found = await this.repo.findOne({
-      where: { athleteId, isActive: true },
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const allAthletePlans = await this.repo.find({
+      where: { athleteId },
       order: { createdAt: 'DESC' },
     });
-    return found ? this.toDomain(found) : null;
+
+    if (allAthletePlans.length === 0) {
+      return null;
+    }
+
+    // 1. Prioridad: Buscar plan cuyo rango de fechas incluya el día de hoy
+    const currentPlan = allAthletePlans.find((p) => {
+      const s = String(p.startDate).slice(0, 10);
+      const e = String(p.endDate).slice(0, 10);
+      return s <= todayStr && todayStr <= e;
+    });
+
+    if (currentPlan) {
+      if (!currentPlan.isActive) {
+        await this.deactivatePreviousPlans(athleteId);
+        await this.repo.update(currentPlan.id, { isActive: true });
+        currentPlan.isActive = true;
+      }
+      return this.toDomain(currentPlan);
+    }
+
+    // 2. Si no hay plan vigente hoy, buscar si hay alguno con isActive=true cuya fecha fin no haya vencido
+    const activeValidPlan = allAthletePlans.find((p) => {
+      const e = String(p.endDate).slice(0, 10);
+      return p.isActive && e >= todayStr;
+    });
+
+    if (activeValidPlan) {
+      return this.toDomain(activeValidPlan);
+    }
+
+    return null;
   }
 
   async findAllByAthleteId(athleteId: string): Promise<TrainingPlan[]> {

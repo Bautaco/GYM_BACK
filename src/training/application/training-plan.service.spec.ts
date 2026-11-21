@@ -19,6 +19,8 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
     athleteId: 'athlete-1',
     startDate: '2026-10-15',
     endDate: '2026-11-12',
+    frequencyPerWeek: 1,
+    sessionsPerDay: 1,
     routines: [
       {
         name: 'Día 1: Piernas',
@@ -99,6 +101,22 @@ describe('TrainingPlanService (HU-01, HU-02)', () => {
       const dto = makeValidDto({ startDate: '2026-10-15', endDate: '2026-10-15' });
       const result = await service.createPlan(dto, 'trainer-1');
       expect(result).toBeDefined();
+    });
+
+    it('CP-01-07: Lanza BadRequestException si la cantidad de rutinas no coincide con frecuencia x sesiones', async () => {
+      const dto = makeValidDto({
+        frequencyPerWeek: 3,
+        sessionsPerDay: 1,
+        routines: [
+          {
+            name: 'Día 1: Piernas',
+            dayOfWeek: 1,
+            exerciseItems: [],
+          },
+        ],
+      });
+
+      await expect(service.createPlan(dto, 'trainer-1')).rejects.toThrow(BadRequestException);
     });
   });
 

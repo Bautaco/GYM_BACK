@@ -91,6 +91,17 @@ export class TrainingPlanService {
     // Requerimiento 3: Validación de superposición de fechas con rutinas activas o programadas
     await this.validateNoDateOverlap(dto.athleteId, dto.startDate, dto.endDate);
 
+    // Validación de coherencia entre días/frecuencia, sesiones por día y rutinas cargadas
+    const frequency = dto.frequencyPerWeek ?? 3;
+    const sessions = dto.sessionsPerDay ?? 1;
+    const expectedRoutinesCount = frequency * sessions;
+    const actualRoutinesCount = (dto.routines || []).length;
+    if (actualRoutinesCount !== expectedRoutinesCount) {
+      throw new BadRequestException(
+        `La cantidad de rutinas configuradas (${actualRoutinesCount}) no coincide con la frecuencia semanal y turnos indicados (${frequency} días/sem x ${sessions} turno(s)/día = ${expectedRoutinesCount} rutinas requeridas).`,
+      );
+    }
+
     const todayStr = new Date().toISOString().slice(0, 10);
     const newStartStr = startDate.toISOString().slice(0, 10);
     const isImmediatelyActive = newStartStr <= todayStr;
@@ -163,6 +174,17 @@ export class TrainingPlanService {
 
     // Requerimiento 3: Validación de superposición excluyendo este mismo plan
     await this.validateNoDateOverlap(dto.athleteId, dto.startDate, dto.endDate, id);
+
+    // Validación de coherencia entre días/frecuencia, sesiones por día y rutinas cargadas
+    const frequency = dto.frequencyPerWeek ?? existing.frequencyPerWeek ?? 3;
+    const sessions = dto.sessionsPerDay ?? existing.sessionsPerDay ?? 1;
+    const expectedRoutinesCount = frequency * sessions;
+    const actualRoutinesCount = (dto.routines || []).length;
+    if (actualRoutinesCount !== expectedRoutinesCount) {
+      throw new BadRequestException(
+        `La cantidad de rutinas configuradas (${actualRoutinesCount}) no coincide con la frecuencia semanal y turnos indicados (${frequency} días/sem x ${sessions} turno(s)/día = ${expectedRoutinesCount} rutinas requeridas).`,
+      );
+    }
 
     const routines = (dto.routines || []).map((r) => {
       const items = (r.exerciseItems || []).map(
