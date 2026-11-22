@@ -43,13 +43,15 @@ const allEntities = [
         const dbType = config.get<string>('DATABASE_TYPE', 'better-sqlite3');
 
         if (dbType === 'postgres') {
+          const useSsl = config.get<string>('DB_SSL') === 'true';
           return {
             type: 'postgres',
             host: config.get<string>('DB_HOST', 'localhost'),
-            port: config.get<number>('DB_PORT', 5432),
+            port: Number(config.get('DB_PORT', 5432)),
             username: config.get<string>('DB_USERNAME', 'postgres'),
             password: config.get<string>('DB_PASSWORD', 'postgres'),
             database: config.get<string>('DB_NAME', 'gym_db'),
+            ssl: useSsl ? { rejectUnauthorized: false } : false,
             entities: allEntities,
             synchronize: true, // Automático en desarrollo
           };
