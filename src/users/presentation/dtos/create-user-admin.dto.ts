@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsString,
   MinLength,
+  ValidateIf,
 } from 'class-validator';
 import { UserRole } from '../../../shared/decorators/roles.decorator.js';
 
@@ -33,8 +34,9 @@ export class CreateUserAdminDto {
   @IsString()
   notes?: string;
 
-  @IsOptional()
-  @IsString()
+  @ValidateIf((o) => o.role === UserRole.ATLETA)
+  @IsNotEmpty({ message: 'Todo atleta debe tener un entrenador asignado' })
+  @IsString({ message: 'El identificador del entrenador debe ser válido' })
   trainerId?: string;
 
   @IsOptional()

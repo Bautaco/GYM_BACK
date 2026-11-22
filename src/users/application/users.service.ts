@@ -26,8 +26,13 @@ export class UsersService {
       throw new ConflictException(`Ya existe un usuario registrado con el correo ${dto.email}`);
     }
 
-    if (dto.role === UserRole.ATLETA && dto.trainerId) {
-      const trainer = await this.userRepository.findById(dto.trainerId);
+    let assignedTrainerId: string | undefined;
+    if (dto.role === UserRole.ATLETA) {
+      assignedTrainerId = dto.trainerId?.trim();
+      if (!assignedTrainerId) {
+        throw new BadRequestException('Todo atleta debe tener un entrenador asignado');
+      }
+      const trainer = await this.userRepository.findById(assignedTrainerId);
       if (!trainer || trainer.role !== UserRole.ENTRENADOR) {
         throw new BadRequestException('El entrenador asignado no es válido');
       }
@@ -47,7 +52,7 @@ export class UsersService {
       dto.phone?.trim(),
       dto.notes?.trim(),
       dto.avatarUrl?.trim(),
-      dto.role === UserRole.ATLETA ? dto.trainerId : undefined,
+      assignedTrainerId,
     );
 
     const saved = await this.userRepository.save(newUser);
@@ -85,7 +90,7 @@ export class UsersService {
     }));
   }
 
-  /** Asigna un entrenador válido a un atleta, o quita la asignación con null. */
+  /** Asigna o reasigna un entrenador válido a un atleta (obligatorio). */
   async assignTrainer(athleteId: string, trainerId: string | null) {
     const athlete = await this.userRepository.findById(athleteId);
     if (!athlete) {
@@ -95,14 +100,17 @@ export class UsersService {
       throw new BadRequestException('Solo se puede asignar un entrenador a un atleta');
     }
 
-    if (trainerId) {
-      const trainer = await this.userRepository.findById(trainerId);
-      if (!trainer || trainer.role !== UserRole.ENTRENADOR) {
-        throw new BadRequestException('El entrenador asignado no es válido');
-      }
+    const normalizedTrainerId = trainerId?.trim();
+    if (!normalizedTrainerId) {
+      throw new BadRequestException('Todo atleta debe tener un entrenador asignado');
     }
 
-    athlete.trainerId = trainerId || undefined;
+    const trainer = await this.userRepository.findById(normalizedTrainerId);
+    if (!trainer || trainer.role !== UserRole.ENTRENADOR) {
+      throw new BadRequestException('El entrenador asignado no es válido');
+    }
+
+    athlete.trainerId = normalizedTrainerId;
     athlete.updatedAt = new Date();
     const updated = await this.userRepository.save(athlete);
     return {
@@ -225,6 +233,14 @@ export class UsersService {
     const user = await this.userRepository.findById(id);
     if (!user) {
       throw new NotFoundException(`Usuario con ID ${id} no encontrado`);
+    }
+    if (user.role === UserRole.ENTRENADOR) {
+      const assignedAthletes = await this.userRepository.findByTrainerId(user.id);
+      if (assignedAthletes.length > 0) {
+        throw new BadRequestException(
+          `No puedes eliminar a ${user.fullName} porque tiene ${assignedAthletes.length} atleta(s) asignado(s). Reasígnalos a otro entrenador primero.`,
+        );
+      }
     }
     await this.userRepository.delete(id);
     return { message: `Usuario ${user.fullName} eliminado exitosamente` };

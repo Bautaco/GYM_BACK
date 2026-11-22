@@ -39,14 +39,14 @@ export class UsersController {
     return this.usersService.createUserByAdmin(dto);
   }
 
-  // Un administrador puede asignar, cambiar o quitar el entrenador de un atleta.
+  // Un administrador asigna o cambia el entrenador obligatorio de un atleta.
   @Patch('admin/:id/trainer')
   @Roles(UserRole.ADMIN)
   async assignTrainerByAdmin(
     @Param('id') id: string,
     @Body() dto: AssignTrainerDto,
   ) {
-    return this.usersService.assignTrainer(id, dto.trainerId ?? null);
+    return this.usersService.assignTrainer(id, dto.trainerId);
   }
 
   // HU-01: Admin elimina un usuario
