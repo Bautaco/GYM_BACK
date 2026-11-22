@@ -17,6 +17,7 @@ import { Roles, UserRole } from '../../shared/decorators/roles.decorator.js';
 import { CurrentUser } from '../../shared/decorators/current-user.decorator.js';
 import { CreateUserAdminDto } from './dtos/create-user-admin.dto.js';
 import { UpdateProfileDto } from './dtos/update-profile.dto.js';
+import { AssignTrainerDto } from './dtos/assign-trainer.dto.js';
 
 @Controller('api/v1/users')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -36,6 +37,16 @@ export class UsersController {
   @HttpCode(HttpStatus.CREATED)
   async createUserByAdmin(@Body() dto: CreateUserAdminDto) {
     return this.usersService.createUserByAdmin(dto);
+  }
+
+  // Un administrador puede asignar, cambiar o quitar el entrenador de un atleta.
+  @Patch('admin/:id/trainer')
+  @Roles(UserRole.ADMIN)
+  async assignTrainerByAdmin(
+    @Param('id') id: string,
+    @Body() dto: AssignTrainerDto,
+  ) {
+    return this.usersService.assignTrainer(id, dto.trainerId ?? null);
   }
 
   // HU-01: Admin elimina un usuario

@@ -85,6 +85,33 @@ export class UsersService {
     }));
   }
 
+  /** Asigna un entrenador válido a un atleta, o quita la asignación con null. */
+  async assignTrainer(athleteId: string, trainerId: string | null) {
+    const athlete = await this.userRepository.findById(athleteId);
+    if (!athlete) {
+      throw new NotFoundException(`Usuario con ID ${athleteId} no encontrado`);
+    }
+    if (athlete.role !== UserRole.ATLETA) {
+      throw new BadRequestException('Solo se puede asignar un entrenador a un atleta');
+    }
+
+    if (trainerId) {
+      const trainer = await this.userRepository.findById(trainerId);
+      if (!trainer || trainer.role !== UserRole.ENTRENADOR) {
+        throw new BadRequestException('El entrenador asignado no es válido');
+      }
+    }
+
+    athlete.trainerId = trainerId || undefined;
+    athlete.updatedAt = new Date();
+    const updated = await this.userRepository.save(athlete);
+    return {
+      id: updated.id,
+      trainerId: updated.trainerId,
+      updatedAt: updated.updatedAt,
+    };
+  }
+
   async getAthletes() {
     const athletes = await this.userRepository.findByRole(UserRole.ATLETA);
     return athletes.map((a) => ({

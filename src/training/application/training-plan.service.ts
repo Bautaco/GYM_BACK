@@ -230,7 +230,28 @@ export class TrainingPlanService {
   }
 
   async getActivePlanByAthlete(athleteId: string): Promise<TrainingPlan | null> {
-    return this.planRepo.findActiveByAthleteId(athleteId);
+    /*
+      `isActive` se fija al crear el plan, pero un plan programado puede llegar
+      a su fecha de inicio sin que nadie actualice ese campo. Para la vista del
+      atleta, la fuente de verdad es el rango de vigencia: inicio <= hoy <= fin.
+    */
+    const today = new Date().toISOString().slice(0, 10);
+    const plans = await this.planRepo.findAllByAthleteId(athleteId);
+
+    // Compatibilidad con repositorios o pruebas que aún no entregan historial.
+    if (!plans?.length) {
+      return this.planRepo.findActiveByAthleteId(athleteId);
+    }
+
+    return plans.find((plan) => {
+      const start = plan.startDate instanceof Date
+        ? plan.startDate.toISOString().slice(0, 10)
+        : String(plan.startDate).slice(0, 10);
+      const end = plan.endDate instanceof Date
+        ? plan.endDate.toISOString().slice(0, 10)
+        : String(plan.endDate).slice(0, 10);
+      return start <= today && today <= end;
+    }) || null;
   }
 
   async getAllPlansByAthlete(athleteId: string): Promise<TrainingPlan[]> {
