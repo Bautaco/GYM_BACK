@@ -190,27 +190,62 @@ Authorization: Bearer <JWT_TOKEN>
 
 ## 🧪 5. Testing y Aseguramiento de Calidad (QA)
 
-El backend cuenta con **7 suites de prueba y 74 tests automatizados pasando al 100%**:
+El backend cuenta con **140 tests automatizados (113 unitarios + 27 de integración HTTP)** pasando al **100% (0 fallos)** con **Vitest**, **Supertest** y base de datos de prueba en memoria SQLite (`better-sqlite3`).
+
+### 🚀 Ejecución Rápida de Pruebas
 
 ```bash
-# Ejecutar todas las pruebas unitarias y de integración
+# 1. Ejecutar solo tests unitarios de dominio (113 tests)
 npm test
 
-# Ejecutar pruebas en modo observador (watch)
+# 2. Ejecutar tests de integración HTTP de casos de uso (27 tests con Supertest)
+npm run test:integration
+
+# 3. Modo interactivo / observador
 npm run test:watch
 
-# Generar reporte de cobertura de código
+# 4. Reporte de cobertura de código
 npm run test:cov
 ```
 
-### Cobertura de las Suites
-- **`value-objects.spec.ts` (23 tests)**: Inmutabilidad, comparación por valor y autovalidaciones de los Value Objects del dominio (`Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration`, `SessionDate`).
-- **`analytics.service.spec.ts` (16 tests)**: Métricas CAR de adherencia, cobertura de planes, fatiga/RPE, PRs, antropometría, auditoría de entrenadores, catálogo multimedia y filtros temporales.
-- **`exercise.service.spec.ts` (13 tests)**: Creación de ejercicios, sincronización automática de grupos musculares y eliminación persistente de video (`null`/`""`).
-- **`exercise.controller.spec.ts` (7 tests)**: Control de endpoints REST de ejercicios, grupos y zonas.
-- **`training-plan.service.spec.ts` (8 tests)**: Creación, archivado de planes anteriores y validación contra superposición de fechas.
-- **`workout-session.service.spec.ts` (6 tests)**: Registro de series, validación de pesos no negativos y detección de PRs.
-- **`app.controller.spec.ts` (1 test)**: Comprobación de salud e inyección del core NestJS.
+### ⚡ Ejecución Unificada de Todo el Sistema (Front + Back + E2E)
+Desde la **carpeta raíz del proyecto (`GYM`)**:
+
+```bash
+# Ejecutar los 256 tests de la plataforma completa en una sola corrida
+npm run test:all
+
+# O usando el script con salida formateada a color en PowerShell:
+.\test-all.ps1
+
+# O desde la consola clásica de Windows (CMD):
+test-all.bat
+```
+
+### Cobertura de las Suites del Backend
+
+#### 1. Tests Unitarios de Dominio (`src/**/*.spec.ts` — 113 tests)
+- **`value-objects.spec.ts` (23 tests)**: Inmutabilidad, comparación por valor y autovalidaciones fail-fast de los Value Objects del dominio (`Rpe`, `PesoKg`, `SerieRegistrada`, `Weight`, `Duration`, `SessionDate`).
+- **`analytics.service.spec.ts` (16 tests)**: Métricas institucionales CAR: semáforos de adherencia global, cobertura de microciclos, distribución de fatiga/RPE, récords personales (PRs), antropometría, auditoría de staff y filtros temporales.
+- **`training-plan.service.spec.ts` (14 tests)**: Creación de planes, validación matemática $\text{frecuencia} \times \text{turnos} = \text{rutinas}$, archivado de microciclos anteriores y validación estricta de superposición de fechas (`validateNoDateOverlap`).
+- **`exercise.service.spec.ts` (13 tests)**: Creación de ejercicios, sincronización taxonómica de grupos musculares, normalización de URLs (YouTube, Shorts, MP4) y eliminación persistente de video (`videoUrl: null`).
+- **`workout-session.service.spec.ts` (6 tests)**: Registro granular de series, validación de cargas no negativas y motor de detección de récords personales (PRs).
+- **`workout-session.entity.spec.ts` (8 tests)**: Métodos de dominio de sesión, protección contra modificación tras finalización y cálculo de volumen total.
+- **`auth.service.spec.ts` (8 tests)**: Verificación criptográfica con bcrypt, emisión y validación de tokens JWT.
+- **`exercise.controller.spec.ts` (7 tests)**: Controlador REST de ejercicios, grupos y zonas anatómicas.
+- **`routine-template.service.spec.ts` (5 tests)**: Biblioteca de plantillas de rutina reutilizables y categorías.
+- **`body-weight.service.spec.ts` (5 tests)**: Registro antropométrico de peso corporal y orden cronológico.
+- **`user.entity.spec.ts` (5 tests)**: Entidad de dominio User, roles institucionales y reglas de avatar.
+- **`users.service.spec.ts` (2 tests)**: Casos de uso de alta administrativa y baja de usuarios.
+- **`app.controller.spec.ts` (1 test)**: Healthcheck institucional e inyección del core NestJS.
+
+#### 2. Tests de Integración HTTP (`test/integration/**/*.spec.ts` — 27 tests)
+- **`auth.integration.spec.ts` (5 tests)**: Login exitoso con JWT, rechazo con 401 por credenciales incorrectas o usuario inexistente, validación 400 por payload vacío y protección de endpoint `/me`.
+- **`users.integration.spec.ts` (6 tests)**: Consulta de usuarios por ADMIN (200), bloqueo RBAC a ATLETA (403), alta con bcrypt (201), validación de unicidad de correo (409 Conflict), edición de perfil propio (200) y baja definitiva de cuenta (200).
+- **`exercise.integration.spec.ts` (5 tests)**: Consulta autenticada de catálogo, listado de grupos musculares, zonas trabajadas, creación con video (201) y actualización enviando `videoUrl: null` (200).
+- **`training-plan.integration.spec.ts` (5 tests)**: Consulta de plan activo (200), historial (200), creación de microciclo (201), rechazo 400 por superposición de fechas con plan activo (`"rango de fechas"`) y actualización PUT (200).
+- **`workout-session.integration.spec.ts` (5 tests)**: Registro de sesión completada (201), detección de superación de PR histórico (201), rechazo por peso negativo (400), rechazo por RPE > 10 (400) e historial de sesiones (200).
+- **`app.e2e-spec.ts` (1 test)**: Verificación del endpoint raíz `/` (200 OK).
 
 ---
 
